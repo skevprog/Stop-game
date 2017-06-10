@@ -44,6 +44,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaDatos = new javax.swing.JTable();
         btnFinalizar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,12 +60,14 @@ public class VistaPuntaje extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TablaDatos);
 
-        btnFinalizar.setText("Finalizar Partida");
+        btnFinalizar.setText("Terminar Juego");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarActionPerformed(evt);
             }
         });
+
+        jButton2.setText("Siguiente Ronda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +79,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFinalizar)))
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -88,7 +93,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(btnFinalizar))
+                    .addComponent(btnFinalizar)
+                    .addComponent(jButton2))
                 .addGap(17, 17, 17))
         );
 
@@ -138,6 +144,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private javax.swing.JTable TablaDatos;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
