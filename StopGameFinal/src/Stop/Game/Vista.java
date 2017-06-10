@@ -167,10 +167,15 @@ char randomLet;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-    String [] Datos=new String [3];               //Se crea un arreglo que contendrá los datos agregados
-        Datos[0]=txtNombre.getText();                  
-        Datos[1]=txtAnimal.getText();               
-        Datos[2]=txtColor.getText();
+        int a=0;
+        
+        String [] Datos=new String [5];               //Se crea un arreglo que contendrá los datos agregados
+        String letra=String.valueOf(randomLet);
+        Datos[0]="ronda";
+        Datos[1]=letra;
+        Datos[2]=txtNombre.getText();                  
+        Datos[3]=txtAnimal.getText();               
+        Datos[4]=txtColor.getText();
         vistpunt.modelo.addRow(Datos);
         vistpunt.modelo.isCellEditable(0, 1);
         

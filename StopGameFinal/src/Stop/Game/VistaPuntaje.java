@@ -22,10 +22,12 @@ public class VistaPuntaje extends javax.swing.JFrame {
     public VistaPuntaje() {
         initComponents();
         TablaDatos.setModel(modelo);
+        modelo.addColumn("Ronda");
+        modelo.addColumn("Letra");
         modelo.addColumn("Nombre");
         modelo.addColumn("Animal");
         modelo.addColumn("Color");
-        
+        modelo.addColumn("Puntaje");
         
         
         
