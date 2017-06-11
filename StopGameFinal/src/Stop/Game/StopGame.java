@@ -16,7 +16,7 @@ public class StopGame {
      */
     public static void main(String[] args) {
         
-        
+       //Ejecutable ventana
         Vista vista=new Vista();
         vista.setVisible(true);
     
