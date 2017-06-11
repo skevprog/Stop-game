@@ -167,10 +167,10 @@ char randomLet;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        int a=0;
+        
         
         String [] Datos=new String [5];               //Se crea un arreglo que contendrá los datos agregados
-        String letra=String.valueOf(randomLet);
+        String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String
         Datos[0]="ronda";
         Datos[1]=letra;
         Datos[2]=txtNombre.getText();                  
