@@ -195,9 +195,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
         /*Se cierra la ventana puntaje para comenzar otra ronda*/
+        
         this.setVisible(false);
-        Vista vist=new Vista();
-        vist.setVisible(true);
         
     }//GEN-LAST:event_btnSigRondaActionPerformed
 

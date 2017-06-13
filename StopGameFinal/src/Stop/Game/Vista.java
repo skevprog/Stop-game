@@ -195,7 +195,7 @@ char randomLet;
         
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-       this.setVisible(false);
+       
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
