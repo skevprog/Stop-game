@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Vista extends javax.swing.JFrame {
 char randomLet;
+Integer a=1;            //Variable que indicara el numero de ronda
     /**
      * Creates new form Vista
      */
@@ -170,9 +171,9 @@ char randomLet;
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         
         
-        String [] Datos=new String [5];               //Se crea un arreglo que contendrá los datos agregados
+        Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
         String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String
-        Datos[0]="ronda";
+        Datos[0]=a++;
         Datos[1]=letra;
         Datos[2]=txtNombre.getText();                  
         Datos[3]=txtColor.getText();

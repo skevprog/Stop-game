@@ -141,7 +141,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(162, 162, 162)
                         .addComponent(txtPuntajeNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtPuntajeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +194,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
-        /*Se cierra la ventana puntaje para comenzar otra ronda*/
+       
         
         this.setVisible(false);
         

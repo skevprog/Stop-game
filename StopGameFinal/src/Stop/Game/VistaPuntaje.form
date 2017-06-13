@@ -64,7 +64,7 @@
                       <Component id="jScrollPane3" min="-2" pref="89" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                       <Component id="txtPuntajeNombre" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtPuntajeAnimal" min="-2" pref="56" max="-2" attributes="0"/>
