@@ -19,6 +19,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
      * Creates new form VistaPuntaje
      */
     
+    
     DefaultTableModel modelo=new DefaultTableModel();
     DefaultTableModel modelo2=new DefaultTableModel();          //creamos la tabla por defecto para colocar puntaje
     public VistaPuntaje() {
@@ -32,6 +33,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
         TablaPuntos.setModel(modelo2);
         modelo2.addColumn("Puntaje");
    
+    }
+    
+    /*METODO PARA VERIFICAR*/
+    public void verificar(){
+        
     }
 /*METODO PARA FINALIZAR PARTIDA*/
     public void finalizar(int a){
@@ -84,6 +90,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
             }
         });
 
+        TablaDatos=new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){
+                return false;
+            }
+        };
         TablaDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -113,6 +124,12 @@ public class VistaPuntaje extends javax.swing.JFrame {
         btnSigRonda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSigRondaActionPerformed(evt);
+            }
+        });
+
+        txtPuntajeNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPuntajeNombreActionPerformed(evt);
             }
         });
 
@@ -185,10 +202,16 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
         /*SE OBTIENE EL PUNTAJE DEL CAMPO DE TEXTO PARA LUEGO SUMARLO*/
         Integer suma=0;
+       
+        try{
+        
         Integer a=Integer.parseInt(txtPuntajeNombre.getText());
         Integer b=Integer.parseInt(txtPuntajeAnimal.getText());
         Integer c=Integer.parseInt(txtPuntajeColor.getText());
         suma=a+b+c;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje");
+        }
         
         JOptionPane.showMessageDialog(null, "el total es de: "+suma);
         /*SE PASA EL PUNTAJE TOTAL DE LA RONDA A LA TABLA DE PUNTAJES*/
@@ -205,6 +228,10 @@ public class VistaPuntaje extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSigRondaActionPerformed
+
+    private void txtPuntajeNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeNombreActionPerformed
+       
+    }//GEN-LAST:event_txtPuntajeNombreActionPerformed
 
     /**
      * @param args the command line arguments

@@ -33,6 +33,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
        return false;
     
     }
+    
 };
     
     // SE CREA PORQUE CADA CAMPO DEL A TABLA SERA UN OBJETO PERSONA CON LOS ATRIBUTOS(datos) QUE INGRESO("nombre","color","marcas")
@@ -183,8 +184,9 @@ Integer a=1;            //Variable que indicara el numero de ronda
         Datos[4]=txtAnimal.getText();               
         
         vistpunt.modelo.addRow(Datos);
-        vistpunt.modelo.isCellEditable(0, 1);
+       
         
+       
         
         /*Se reinicia el campo de texto y queda en blanco*/
         txtNombre.setText("");     
