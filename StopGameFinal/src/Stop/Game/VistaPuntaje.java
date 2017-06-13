@@ -132,6 +132,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
                 txtPuntajeNombreActionPerformed(evt);
             }
         });
+        txtPuntajeNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPuntajeNombreKeyTyped(evt);
+            }
+        });
 
         TablaPuntos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,22 +207,31 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
         /*SE OBTIENE EL PUNTAJE DEL CAMPO DE TEXTO PARA LUEGO SUMARLO*/
         Integer suma=0;
+        boolean comp;
        
+        do{         
+           comp=true;
         try{
         
         Integer a=Integer.parseInt(txtPuntajeNombre.getText());
         Integer b=Integer.parseInt(txtPuntajeAnimal.getText());
         Integer c=Integer.parseInt(txtPuntajeColor.getText());
         suma=a+b+c;
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje");
-        }
-        
-        JOptionPane.showMessageDialog(null, "el total es de: "+suma);
         /*SE PASA EL PUNTAJE TOTAL DE LA RONDA A LA TABLA DE PUNTAJES*/
         Integer [] Dat=new Integer[1];
         Dat[0]=suma;
         modelo2.addRow(Dat);
+        JOptionPane.showMessageDialog(null, "el total es de: "+suma);
+        /*SI SE APRIETA EL BOTON SUMAR SIN QUE ESTEN COMPLETOS TODOS LOS CAMPOS, SE LANZARA UNA EXCEPCION*/
+        }catch(Exception e){                                                
+            JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje");
+            comp=false;
+        }
+       }while(comp=false);
+        
+        
+        
+        
         
         
     }//GEN-LAST:event_btnSumarActionPerformed
@@ -232,6 +246,18 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private void txtPuntajeNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeNombreActionPerformed
        
     }//GEN-LAST:event_txtPuntajeNombreActionPerformed
+
+    private void txtPuntajeNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuntajeNombreKeyTyped
+       
+        /*SOLO SE PUEDE INGRESAR NUMEROS*/
+        char validar=evt.getKeyChar();
+        if (Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane," Ingresar solo numeros");
+        }
+    }//GEN-LAST:event_txtPuntajeNombreKeyTyped
 
     /**
      * @param args the command line arguments

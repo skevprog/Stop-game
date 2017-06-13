@@ -183,7 +183,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
         Datos[3]=txtColor.getText();
         Datos[4]=txtAnimal.getText();               
         
-        vistpunt.modelo.addRow(Datos);
+        vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
        
         
        
