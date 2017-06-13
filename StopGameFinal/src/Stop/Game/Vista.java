@@ -18,11 +18,13 @@ import javax.swing.table.DefaultTableModel;
 public class Vista extends javax.swing.JFrame {
 char randomLet;
 Integer a=1;            //Variable que indicara el numero de ronda
+
     /**
      * Creates new form Vista
      */
-
-    VistaPuntaje vistpunt=new VistaPuntaje();
+     
+    VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
+    
     
     DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
     @Override
@@ -36,7 +38,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
     // SE CREA PORQUE CADA CAMPO DEL A TABLA SERA UN OBJETO PERSONA CON LOS ATRIBUTOS(datos) QUE INGRESO("nombre","color","marcas")
     public Vista() {
         initComponents();
-       
+        
         
     }
 
@@ -189,15 +191,15 @@ Integer a=1;            //Variable que indicara el numero de ronda
         txtAnimal.setText("");
         txtColor.setText("");    
         
-        /*Se muestra si desea realizar otra partida*/
+      
         
         
         /*Se pasan los datos a la ventana puntaje*/
         vistpunt.setVisible(true);
-        
+       
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-       
+      
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 

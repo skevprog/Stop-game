@@ -31,11 +31,14 @@ public class VistaPuntaje extends javax.swing.JFrame {
         modelo.addColumn("Color");
         TablaPuntos.setModel(modelo2);
         modelo2.addColumn("Puntaje");
-        
-        
-        
+   
     }
-
+/*METODO PARA FINALIZAR PARTIDA*/
+    public void finalizar(int a){
+        if(a==0){
+            System.exit(0);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,7 +177,9 @@ public class VistaPuntaje extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        System.exit(0);
+       int s=JOptionPane.showConfirmDialog(null,"¿Desea terminar la partida?");
+       finalizar(s);
+       
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
@@ -195,9 +200,10 @@ public class VistaPuntaje extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
-       
-        this.setVisible(false);
-        Vista.txtLetraGen.setText("");
+        this.dispose();                     //Metodo para cerrar ventana actual sin perder datos
+        Vista.txtLetraGen.setText("");      
+        
+        
     }//GEN-LAST:event_btnSigRondaActionPerformed
 
     /**
