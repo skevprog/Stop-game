@@ -20,6 +20,7 @@ char randomLet;
     /**
      * Creates new form Vista
      */
+
     VistaPuntaje vistpunt=new VistaPuntaje();
     
     DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
@@ -174,8 +175,9 @@ char randomLet;
         Datos[0]="ronda";
         Datos[1]=letra;
         Datos[2]=txtNombre.getText();                  
-        Datos[3]=txtAnimal.getText();               
-        Datos[4]=txtColor.getText();
+        Datos[3]=txtColor.getText();
+        Datos[4]=txtAnimal.getText();               
+        
         vistpunt.modelo.addRow(Datos);
         vistpunt.modelo.isCellEditable(0, 1);
         
@@ -191,6 +193,10 @@ char randomLet;
         /*Se pasan los datos a la ventana puntaje*/
         vistpunt.setVisible(true);
         
+        
+        /*Se cierra ventana principal para pasar a la ventana puntaje*/
+       this.setVisible(false);
+       
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

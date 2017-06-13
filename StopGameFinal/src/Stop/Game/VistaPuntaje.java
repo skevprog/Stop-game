@@ -18,6 +18,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     /**
      * Creates new form VistaPuntaje
      */
+    
     DefaultTableModel modelo=new DefaultTableModel();
     DefaultTableModel modelo2=new DefaultTableModel();          //creamos la tabla por defecto para colocar puntaje
     public VistaPuntaje() {
@@ -50,7 +51,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaDatos = new javax.swing.JTable();
         btnFinalizar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSigRonda = new javax.swing.JButton();
         txtPuntajeNombre = new javax.swing.JTextField();
         txtPuntajeAnimal = new javax.swing.JTextField();
         txtPuntajeColor = new javax.swing.JTextField();
@@ -104,7 +105,12 @@ public class VistaPuntaje extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Siguiente Ronda");
+        btnSigRonda.setText("Siguiente Ronda");
+        btnSigRonda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSigRondaActionPerformed(evt);
+            }
+        });
 
         TablaPuntos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,13 +130,13 @@ public class VistaPuntaje extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSumar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSigRonda)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnFinalizar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,12 +147,12 @@ public class VistaPuntaje extends javax.swing.JFrame {
                         .addComponent(txtPuntajeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtPuntajeColor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPuntajeColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPuntajeNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,7 +165,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSumar)
                     .addComponent(btnFinalizar)
-                    .addComponent(jButton2))
+                    .addComponent(btnSigRonda))
                 .addGap(17, 17, 17))
         );
 
@@ -186,6 +192,14 @@ public class VistaPuntaje extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSumarActionPerformed
+
+    private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
+        /*Se cierra la ventana puntaje para comenzar otra ronda*/
+        this.setVisible(false);
+        Vista vist=new Vista();
+        vist.setVisible(true);
+        
+    }//GEN-LAST:event_btnSigRondaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,8 +240,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private javax.swing.JTable TablaDatos;
     private javax.swing.JTable TablaPuntos;
     private javax.swing.JButton btnFinalizar;
+    private javax.swing.JButton btnSigRonda;
     private javax.swing.JButton btnSumar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
