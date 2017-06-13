@@ -72,6 +72,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tabla Puntaje");
 
         btnSumar.setText("Sumar");
         btnSumar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,9 +196,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
        
-        
         this.setVisible(false);
-        
+        Vista.txtLetraGen.setText("");
     }//GEN-LAST:event_btnSigRondaActionPerformed
 
     /**
