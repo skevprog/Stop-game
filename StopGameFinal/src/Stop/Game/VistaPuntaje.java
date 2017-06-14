@@ -255,12 +255,21 @@ public class VistaPuntaje extends javax.swing.JFrame {
         Integer a=Integer.parseInt(txtPuntajeNombre.getText());
         Integer b=Integer.parseInt(txtPuntajeAnimal.getText());
         Integer c=Integer.parseInt(txtPuntajeColor.getText());
+        
+        if(a<0 || b<0 || c<0){
+            JOptionPane.showMessageDialog(null," Debe completar el campo con valores mayores a 0");
+            
+        }else{
         suma=a+b+c;
+        
+        
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
         Integer [] Dat=new Integer[1];
+        
         Dat[0]=suma;
         modelo2.addRow(Dat);
         JOptionPane.showMessageDialog(null, "El puntaje de la ronda actual \t es de: "+suma);
+        }
         /*SI SE APRIETA EL BOTON SUMAR SIN QUE ESTEN COMPLETOS TODOS LOS CAMPOS, SE LANZARA UNA EXCEPCION*/
         }catch(Exception e){                                                
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje con numeros enteros");
