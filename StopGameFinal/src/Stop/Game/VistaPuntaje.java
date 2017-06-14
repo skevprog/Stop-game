@@ -256,11 +256,13 @@ public class VistaPuntaje extends javax.swing.JFrame {
         Integer b=Integer.parseInt(txtPuntajeAnimal.getText());
         Integer c=Integer.parseInt(txtPuntajeColor.getText());
         
+        /*SE COLOCA CONDICION PARA NO ACEPTAR NUMEROS NEGATIVOS*/
         if(a<0 || b<0 || c<0){
             JOptionPane.showMessageDialog(null," Debe completar el campo con valores mayores a 0");
             
         }else{
         suma=a+b+c;
+        
         
         
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
