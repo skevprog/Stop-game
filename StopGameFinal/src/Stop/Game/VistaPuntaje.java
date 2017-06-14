@@ -264,7 +264,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         suma=a+b+c;
         
         
-        
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
         Integer [] Dat=new Integer[1];
         
