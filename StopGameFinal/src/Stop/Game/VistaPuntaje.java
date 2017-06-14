@@ -78,7 +78,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         txtPuntajeColor = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         TablaPuntos = new javax.swing.JTable();
-        txtPuntajeTotal = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -169,6 +168,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
             }
         });
 
+        TablaPuntos=new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){
+                return false;
+            }
+        };
         TablaPuntos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -179,12 +183,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(TablaPuntos);
 
-        txtPuntajeTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPuntajeTotalActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Colocar Puntaje------------->");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,20 +191,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSumar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSigRonda)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnFinalizar))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPuntajeTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -214,8 +199,17 @@ public class VistaPuntaje extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPuntajeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPuntajeColor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(txtPuntajeColor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSumar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSigRonda)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFinalizar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,8 +228,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSumar)
                     .addComponent(btnSigRonda)
-                    .addComponent(btnFinalizar)
-                    .addComponent(txtPuntajeTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFinalizar))
                 .addGap(17, 17, 17))
         );
 
@@ -268,11 +261,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         Dat[0]=suma;
         modelo2.addRow(Dat);
         JOptionPane.showMessageDialog(null, "El puntaje de la ronda actual \t es de: "+suma);
-        
-        int total=0;
-        total=suma;
-        String puntaje=Integer.toString(total);
-        txtPuntajeTotal.setText(puntaje);
         /*SI SE APRIETA EL BOTON SUMAR SIN QUE ESTEN COMPLETOS TODOS LOS CAMPOS, SE LANZARA UNA EXCEPCION*/
         }catch(Exception e){                                                
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje con numeros enteros");
@@ -337,18 +325,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtPuntajeColorKeyTyped
 
-    private void txtPuntajeTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeTotalActionPerformed
-   /*
-    int a=Integer.parseInt(txtPuntajeNombre.getText());
-    int b=Integer.parseInt(txtPuntajeAnimal.getText());
-    int c=Integer.parseInt(txtPuntajeColor.getText());
-    int suma=a+b+c;
-    String s=Integer.toString(suma);
-        */
-    
-        
-    }//GEN-LAST:event_txtPuntajeTotalActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -398,6 +374,5 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private javax.swing.JTextField txtPuntajeAnimal;
     private javax.swing.JTextField txtPuntajeColor;
     private javax.swing.JTextField txtPuntajeNombre;
-    private javax.swing.JTextField txtPuntajeTotal;
     // End of variables declaration//GEN-END:variables
 }

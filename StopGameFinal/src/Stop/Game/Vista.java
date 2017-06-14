@@ -71,7 +71,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Stop Game");
 
-        btnFinalizar.setText("Stop");
+        btnFinalizar.setText("Parar");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarActionPerformed(evt);
