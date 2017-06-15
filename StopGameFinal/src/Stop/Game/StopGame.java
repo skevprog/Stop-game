@@ -18,6 +18,7 @@ public class StopGame {
         
        //Ejecutable ventana
         Vista vista=new Vista();
+        
         vista.setVisible(true);
     
     }

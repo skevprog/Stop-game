@@ -252,9 +252,9 @@ public class VistaPuntaje extends javax.swing.JFrame {
            comp=true;
         try{
         
-        Integer a=Integer.parseInt(txtPuntajeNombre.getText());
-        Integer b=Integer.parseInt(txtPuntajeAnimal.getText());
-        Integer c=Integer.parseInt(txtPuntajeColor.getText());
+        Integer a=Integer.parseInt(txtPuntajeNombre.getText().trim());
+        Integer b=Integer.parseInt(txtPuntajeAnimal.getText().trim());
+        Integer c=Integer.parseInt(txtPuntajeColor.getText().trim());
         
         /*SE COLOCA CONDICION PARA NO ACEPTAR NUMEROS NEGATIVOS*/
         if(a<0 || b<0 || c<0){
@@ -266,11 +266,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
         
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
         Integer [] Dat=new Integer[1];
-        
         Dat[0]=suma;
         modelo2.addRow(Dat);
         JOptionPane.showMessageDialog(null, "El puntaje de la ronda actual \t es de: "+suma);
         }
+        
         /*SI SE APRIETA EL BOTON SUMAR SIN QUE ESTEN COMPLETOS TODOS LOS CAMPOS, SE LANZARA UNA EXCEPCION*/
         }catch(Exception e){                                                
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos de puntaje con numeros enteros");
