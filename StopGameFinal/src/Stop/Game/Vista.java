@@ -173,15 +173,14 @@ Integer a=1;            //Variable que indicara el numero de ronda
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
         String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String
-        Datos[0]=a++;
-        Datos[1]=letra;
-        Datos[2]=txtNombre.getText();                  
-        Datos[3]=txtColor.getText();
-        Datos[4]=txtAnimal.getText();               
+        Datos[0]=a++;                                   //Contador de rondas
+        Datos[1]=letra;                                 //Obtiene la letra generada aleatoriamente
+        /*Funcion .trim() para quitar espacios colocados por el jugador*/
+        Datos[2]=txtNombre.getText().trim();                   
+        Datos[3]=txtColor.getText().trim();
+        Datos[4]=txtAnimal.getText().trim();               
         
         vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
-       
-        
        
         
         /*Se reinicia el campo de texto y queda en blanco*/
