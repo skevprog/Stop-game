@@ -19,10 +19,7 @@ public class Vista extends javax.swing.JFrame {
 public static char randomLet;
 Integer a=1;            //Variable que indicara el numero de ronda
 
-    /**
-     * Creates new form Vista
-     */
-     
+   
     VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
     
     
@@ -169,7 +166,13 @@ Integer a=1;            //Variable que indicara el numero de ronda
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-
+        /*CONDICION PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
+        char t=txtNombre.getText().toUpperCase().trim().charAt(0);
+        char p=randomLet;
+        if(t!=p){
+            VistaPuntaje.txtPuntajeNombre.setText("0");
+            VistaPuntaje.txtPuntajeNombre.setEditable(false);
+        }
        
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados

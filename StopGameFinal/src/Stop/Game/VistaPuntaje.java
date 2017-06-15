@@ -6,6 +6,7 @@
 package Stop.Game;
 
 
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +24,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     
     DefaultTableModel modelo=new DefaultTableModel();
     DefaultTableModel modelo2=new DefaultTableModel();          //creamos la tabla por defecto para colocar puntaje
+    
     public VistaPuntaje() {
         initComponents();
         TablaDatos.setModel(modelo);
@@ -265,14 +267,13 @@ public class VistaPuntaje extends javax.swing.JFrame {
         }else{
         suma=a+b+c;
         
-        
-        
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
         
         Integer [] Dat=new Integer[1];
         Dat[0]=suma;
         modelo2.addRow(Dat);
         JOptionPane.showMessageDialog(null, "El puntaje de la ronda actual \t es de: "+suma);
+        
         
         }
         
