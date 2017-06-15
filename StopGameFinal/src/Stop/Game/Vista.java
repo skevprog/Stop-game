@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class Vista extends javax.swing.JFrame {
-char randomLet;
+public static char randomLet;
 Integer a=1;            //Variable que indicara el numero de ronda
 
     /**
@@ -42,8 +42,8 @@ Integer a=1;            //Variable que indicara el numero de ronda
         
         
     }
-
    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -169,12 +169,13 @@ Integer a=1;            //Variable que indicara el numero de ronda
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
+
+       
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
-        String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String
+        String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String para pasarlo a la tabla
         Datos[0]=a++;                                   //Contador de rondas
-        Datos[1]=letra;                                 //Obtiene la letra generada aleatoriamente
+        Datos[1]=letra;                                 //Obtiene la letra generada aleatoriamente(Ya en formator String)
         /*Funcion .trim() para quitar espacios colocados por el jugador*/
         Datos[2]=txtNombre.getText().trim();                   
         Datos[3]=txtColor.getText().trim();
@@ -182,16 +183,17 @@ Integer a=1;            //Variable que indicara el numero de ronda
         
         vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
        
-        
+      
+       
         /*Se reinicia el campo de texto y queda en blanco*/
         txtNombre.setText("");     
         txtAnimal.setText("");
         txtColor.setText("");    
         
-      
         
         
-        /*Se pasan los datos a la ventana puntaje*/
+        
+        /*Se Hace visible la ventaba puntaje*/
         vistpunt.setVisible(true);
        
         

@@ -256,6 +256,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
         Integer b=Integer.parseInt(txtPuntajeAnimal.getText().trim());
         Integer c=Integer.parseInt(txtPuntajeColor.getText().trim());
         
+        
+        
         /*SE COLOCA CONDICION PARA NO ACEPTAR NUMEROS NEGATIVOS*/
         if(a<0 || b<0 || c<0){
             JOptionPane.showMessageDialog(null," Debe completar el campo con valores mayores a 0");
@@ -264,11 +266,14 @@ public class VistaPuntaje extends javax.swing.JFrame {
         suma=a+b+c;
         
         
+        
         /*SE PASA EL PUNTAJE DE LA RONDA A LA TABLA DE PUNTAJES*/
+        
         Integer [] Dat=new Integer[1];
         Dat[0]=suma;
         modelo2.addRow(Dat);
         JOptionPane.showMessageDialog(null, "El puntaje de la ronda actual \t es de: "+suma);
+        
         }
         
         /*SI SE APRIETA EL BOTON SUMAR SIN QUE ESTEN COMPLETOS TODOS LOS CAMPOS, SE LANZARA UNA EXCEPCION*/
@@ -301,6 +306,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private void txtPuntajeNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuntajeNombreKeyTyped
        
         /*SOLO SE PUEDE INGRESAR NUMEROS*/
+        
         char validar=evt.getKeyChar();
         if (Character.isLetter(validar)){
             getToolkit().beep();
@@ -308,6 +314,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane," Ingresar solo numeros");
         }
+        
     }//GEN-LAST:event_txtPuntajeNombreKeyTyped
 
     private void txtPuntajeAnimalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuntajeAnimalKeyTyped
@@ -383,6 +390,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtPuntajeAnimal;
     private javax.swing.JTextField txtPuntajeColor;
-    private javax.swing.JTextField txtPuntajeNombre;
+    public static javax.swing.JTextField txtPuntajeNombre;
     // End of variables declaration//GEN-END:variables
 }
