@@ -153,6 +153,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
             }
         });
 
+        txtPuntajeAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPuntajeAnimalActionPerformed(evt);
+            }
+        });
         txtPuntajeAnimal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPuntajeAnimalKeyTyped(evt);
@@ -343,6 +348,10 @@ public class VistaPuntaje extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtPuntajeColorKeyTyped
 
+    private void txtPuntajeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeAnimalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPuntajeAnimalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,8 +398,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtPuntajeAnimal;
-    private javax.swing.JTextField txtPuntajeColor;
+    public static javax.swing.JTextField txtPuntajeAnimal;
+    public static javax.swing.JTextField txtPuntajeColor;
     public static javax.swing.JTextField txtPuntajeNombre;
     // End of variables declaration//GEN-END:variables
 }

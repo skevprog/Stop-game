@@ -164,14 +164,40 @@ Integer a=1;            //Variable que indicara el numero de ronda
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public boolean verf(char a,char s){
+    if(a!=s){
+        return true;
+    }else{
+        return false;}
+}
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        /*CONDICION PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
-        char t=txtNombre.getText().toUpperCase().trim().charAt(0);
+        
+        /*CONDICIÓN PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
+        char nom=txtNombre.getText().toUpperCase().trim().charAt(0);
+        char ani=txtNombre.getText().toUpperCase().trim().charAt(0);
+        char col=txtNombre.getText().toUpperCase().trim().charAt(0);
         char p=randomLet;
-        if(t!=p){
+        
+        if(nom!=p){
             VistaPuntaje.txtPuntajeNombre.setText("0");
             VistaPuntaje.txtPuntajeNombre.setEditable(false);
+        }
+        else{ 
+            VistaPuntaje.txtPuntajeNombre.setEditable(true);
+        }
+        if(ani!=p){
+            VistaPuntaje.txtPuntajeAnimal.setText("0");
+            VistaPuntaje.txtPuntajeAnimal.setEditable(false);
+        }
+        else{
+            VistaPuntaje.txtPuntajeAnimal.setEditable(true);
+        }
+
+        if(col!=p){
+            VistaPuntaje.txtPuntajeColor.setText("0");
+            VistaPuntaje.txtPuntajeColor.setEditable(false);
+        }else{
+        VistaPuntaje.txtPuntajeColor.setEditable(true);
         }
        
         
@@ -192,7 +218,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
         txtNombre.setText("");     
         txtAnimal.setText("");
         txtColor.setText("");    
-        
+         
         
         
         
