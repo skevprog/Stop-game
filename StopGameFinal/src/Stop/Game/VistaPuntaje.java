@@ -22,6 +22,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
      */
     
     
+    
     DefaultTableModel modelo=new DefaultTableModel();
     DefaultTableModel modelo2=new DefaultTableModel();          //creamos la tabla por defecto para colocar puntaje
     
@@ -299,7 +300,8 @@ public class VistaPuntaje extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
-        this.dispose();                     //Metodo para cerrar ventana actual sin perder datos
+        this.dispose();                   //Metodo para cerrar ventana actual sin perder datos
+       
         Vista.txtLetraGen.setText("");      
         
         

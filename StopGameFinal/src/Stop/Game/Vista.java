@@ -6,6 +6,7 @@
 package Stop.Game;
 
 
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,24 +20,22 @@ public class Vista extends javax.swing.JFrame {
 public static char randomLet;
 Integer a=1;            //Variable que indicara el numero de ronda
 
-   
-    VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
-    
-    
-    DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
+
+VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
+
+
+         DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
     @Override
     public boolean isCellEditable(int row, int column) {
-       //all cells false
        return false;
     
     }
     
 };
-    
-    // SE CREA PORQUE CADA CAMPO DEL A TABLA SERA UN OBJETO PERSONA CON LOS ATRIBUTOS(datos) QUE INGRESO("nombre","color","marcas")
+
     public Vista() {
         initComponents();
-        
+        btnFinalizar.setEnabled(false);
         
     }
    
@@ -164,15 +163,11 @@ Integer a=1;            //Variable que indicara el numero de ronda
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public boolean verf(char a,char s){
-    if(a!=s){
-        return true;
-    }else{
-        return false;}
-}
+
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
+       
         /*CONDICIÓN PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
+        /*
         char nom=txtNombre.getText().toUpperCase().trim().charAt(0);
         char ani=txtNombre.getText().toUpperCase().trim().charAt(0);
         char col=txtNombre.getText().toUpperCase().trim().charAt(0);
@@ -199,7 +194,7 @@ public boolean verf(char a,char s){
         }else{
         VistaPuntaje.txtPuntajeColor.setEditable(true);
         }
-       
+       */
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
         String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String para pasarlo a la tabla
@@ -210,9 +205,10 @@ public boolean verf(char a,char s){
         Datos[3]=txtColor.getText().trim();
         Datos[4]=txtAnimal.getText().trim();               
         
+        
         vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
        
-      
+ 
        
         /*Se reinicia el campo de texto y queda en blanco*/
         txtNombre.setText("");     
@@ -224,10 +220,9 @@ public boolean verf(char a,char s){
         
         /*Se Hace visible la ventaba puntaje*/
         vistpunt.setVisible(true);
-       
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-      
+        
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
@@ -236,11 +231,13 @@ public boolean verf(char a,char s){
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnGenerarLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarLetraActionPerformed
+       
         randomLet=GenerarLetra();
         JOptionPane.showMessageDialog(null,"La letra generada para esta ronda es: "+randomLet);     //Mostrar la letra en una ventana
         String letra=String.valueOf(randomLet);                                                     //Pasaje de char a String
         txtLetraGen.setText(letra);                                                                 //Colocar la letra generada en un cuadro para recordar
         txtLetraGen.setEditable(false);                                                             //Hacer recudro no editable
+        btnFinalizar.setEnabled(true);
         
     }//GEN-LAST:event_btnGenerarLetraActionPerformed
 
