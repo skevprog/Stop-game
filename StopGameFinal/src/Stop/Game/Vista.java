@@ -6,7 +6,7 @@
 package Stop.Game;
 
 
-import java.util.Vector;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +21,7 @@ public static char randomLet;
 Integer a=1;            //Variable que indicara el numero de ronda
 
 
-VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
+    VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
 
 
          DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
@@ -167,34 +167,38 @@ VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INS
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
        
         /*CONDICIÓN PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
-        /*
+        
         char nom=txtNombre.getText().toUpperCase().trim().charAt(0);
-        char ani=txtNombre.getText().toUpperCase().trim().charAt(0);
-        char col=txtNombre.getText().toUpperCase().trim().charAt(0);
+        char ani=txtAnimal.getText().toUpperCase().trim().charAt(0);
+        char col=txtColor.getText().toUpperCase().trim().charAt(0);
         char p=randomLet;
         
-        if(nom!=p){
-            VistaPuntaje.txtPuntajeNombre.setText("0");
-            VistaPuntaje.txtPuntajeNombre.setEditable(false);
-        }
-        else{ 
-            VistaPuntaje.txtPuntajeNombre.setEditable(true);
-        }
-        if(ani!=p){
-            VistaPuntaje.txtPuntajeAnimal.setText("0");
-            VistaPuntaje.txtPuntajeAnimal.setEditable(false);
-        }
-        else{
-            VistaPuntaje.txtPuntajeAnimal.setEditable(true);
-        }
-
-        if(col!=p){
-            VistaPuntaje.txtPuntajeColor.setText("0");
-            VistaPuntaje.txtPuntajeColor.setEditable(false);
-        }else{
-        VistaPuntaje.txtPuntajeColor.setEditable(true);
-        }
-       */
+        if(nom!=p && ani!=p && col!=p){
+        VistaPuntaje.txtPuntajeNombre.setText("0");
+        VistaPuntaje.txtPuntajeAnimal.setText("0");
+        VistaPuntaje.txtPuntajeColor.setText("0");
+        
+    }else if(nom==p && ani!=p && col!=p ){
+        VistaPuntaje.txtPuntajeNombre.setText("");
+        VistaPuntaje.txtPuntajeAnimal.setText("0");
+        VistaPuntaje.txtPuntajeColor.setText("0");
+        
+    }else if(nom!=p && ani==p && col!=p){
+        VistaPuntaje.txtPuntajeNombre.setText("0");
+         VistaPuntaje.txtPuntajeAnimal.setText("0");
+         VistaPuntaje.txtPuntajeColor.setText("");
+         
+    }else if(nom!=p && ani!=p && col==p){
+        VistaPuntaje.txtPuntajeNombre.setText("0");
+         VistaPuntaje.txtPuntajeAnimal.setText("");
+         VistaPuntaje.txtPuntajeColor.setText("0");
+    }
+        
+          
+       
+        
+        
+       
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
         String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String para pasarlo a la tabla
@@ -209,7 +213,6 @@ VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INS
         vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
        
  
-       
         /*Se reinicia el campo de texto y queda en blanco*/
         txtNombre.setText("");     
         txtAnimal.setText("");
@@ -222,7 +225,7 @@ VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INS
         vistpunt.setVisible(true);
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-        
+       
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
