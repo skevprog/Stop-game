@@ -166,7 +166,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
        
-        /*CONDICIÓN PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
+        /*CONDICIÓNES PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
         
         char nom=txtNombre.getText().toUpperCase().trim().charAt(0);
         char ani=txtAnimal.getText().toUpperCase().trim().charAt(0);
@@ -175,23 +175,36 @@ Integer a=1;            //Variable que indicara el numero de ronda
         
         if(nom!=p && ani!=p && col!=p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
+        VistaPuntaje.txtPuntajeNombre.setEditable(false);
         VistaPuntaje.txtPuntajeAnimal.setText("0");
+        VistaPuntaje.txtPuntajeAnimal.setEditable(false);
         VistaPuntaje.txtPuntajeColor.setText("0");
+        VistaPuntaje.txtPuntajeColor.setEditable(false);
         
-    }else if(nom==p && ani!=p && col!=p ){
+        }else {VistaPuntaje.txtPuntajeNombre.setEditable(true);
+        VistaPuntaje.txtPuntajeAnimal.setEditable(true);
+        VistaPuntaje.txtPuntajeColor.setEditable(true);
+           }
+            if(nom==p && ani!=p && col!=p ){
         VistaPuntaje.txtPuntajeNombre.setText("");
         VistaPuntaje.txtPuntajeAnimal.setText("0");
+        VistaPuntaje.txtPuntajeAnimal.setEditable(false);
         VistaPuntaje.txtPuntajeColor.setText("0");
+        VistaPuntaje.txtPuntajeColor.setEditable(false);
         
     }else if(nom!=p && ani==p && col!=p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
+        VistaPuntaje.txtPuntajeNombre.setEditable(false);
          VistaPuntaje.txtPuntajeAnimal.setText("0");
+         VistaPuntaje.txtPuntajeAnimal.setEditable(false);
          VistaPuntaje.txtPuntajeColor.setText("");
-         
+    
     }else if(nom!=p && ani!=p && col==p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
+        VistaPuntaje.txtPuntajeNombre.setEditable(false);
          VistaPuntaje.txtPuntajeAnimal.setText("");
          VistaPuntaje.txtPuntajeColor.setText("0");
+         VistaPuntaje.txtPuntajeColor.setEditable(false);
     }
         
           
