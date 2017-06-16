@@ -6,7 +6,6 @@
 package Stop.Game;
 
 
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,7 +35,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
         modelo.addColumn("Color");
         TablaPuntos.setModel(modelo2);
         modelo2.addColumn("Puntaje");
-   
+        btnSigRonda.setEnabled(false);
     }
     
     /*METODO PARA VERIFICAR*/
@@ -265,7 +264,6 @@ public class VistaPuntaje extends javax.swing.JFrame {
         Integer c=Integer.parseInt(txtPuntajeColor.getText().trim());
         
         
-        
         /*SE COLOCA CONDICION PARA NO ACEPTAR NUMEROS NEGATIVOS*/
         if(a<0 || b<0 || c<0){
             JOptionPane.showMessageDialog(null," Debe completar el campo con valores mayores a 0");
@@ -296,10 +294,12 @@ public class VistaPuntaje extends javax.swing.JFrame {
         txtPuntajeColor.setText("");
         
         
-        
+        btnSigRonda.setEnabled(true);
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
+        
+        
         this.dispose();                   //Metodo para cerrar ventana actual sin perder datos
        
         Vista.txtLetraGen.setText("");      

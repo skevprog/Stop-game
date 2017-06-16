@@ -24,19 +24,20 @@ Integer a=1;            //Variable que indicara el numero de ronda
     VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
 
 
-         DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
+    DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
     @Override
     public boolean isCellEditable(int row, int column) {
        return false;
-    
-    }
-    
+    }  
 };
 
+    /*METODO CONSTRUCTOR*/
     public Vista() {
         initComponents();
         btnFinalizar.setEnabled(false);
-        
+        txtNombre.setEditable(false);
+        txtAnimal.setEditable(false);
+        txtColor.setEditable(false);
     }
    
     
@@ -231,14 +232,12 @@ Integer a=1;            //Variable que indicara el numero de ronda
         txtAnimal.setText("");
         txtColor.setText("");    
          
-        
-        
-        
+
         /*Se Hace visible la ventaba puntaje*/
         vistpunt.setVisible(true);
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-       
+      
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
@@ -253,8 +252,14 @@ Integer a=1;            //Variable que indicara el numero de ronda
         String letra=String.valueOf(randomLet);                                                     //Pasaje de char a String
         txtLetraGen.setText(letra);                                                                 //Colocar la letra generada en un cuadro para recordar
         txtLetraGen.setEditable(false);                                                             //Hacer recudro no editable
+        
+        /*AL ACTIVAR EL BOTON SE ACTIVA EL BOTON PARAR RONDA*/
         btnFinalizar.setEnabled(true);
         
+        /*AL ACTIVAR EL BOTON SE PUEDEN COMPLETAR LOS CAMPOS DE TEXTO*/
+       txtNombre.setEditable(true);
+        txtAnimal.setEditable(true);
+        txtColor.setEditable(true);
     }//GEN-LAST:event_btnGenerarLetraActionPerformed
 
     private void txtAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnimalActionPerformed
