@@ -22,20 +22,22 @@ public class VistaPuntaje extends javax.swing.JFrame {
     
     
     
-    DefaultTableModel modelo=new DefaultTableModel();
+    DefaultTableModel modelox=new DefaultTableModel();
     DefaultTableModel modelo2=new DefaultTableModel();          //creamos la tabla por defecto para colocar puntaje
     
+    /*METODO CONSTRUCTOR*/
     public VistaPuntaje() {
         initComponents();
-        TablaDatos.setModel(modelo);
-        modelo.addColumn("Ronda");
-        modelo.addColumn("Letra");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Animal");
-        modelo.addColumn("Color");
+        TablaDatos.setModel(modelox);
+       modelox.addColumn("Ronda");
+        modelox.addColumn("Letra");
+        modelox.addColumn("Nombre");
+        modelox.addColumn("Animal");
+        modelox.addColumn("Color");
         TablaPuntos.setModel(modelo2);
         modelo2.addColumn("Puntaje");
         btnSigRonda.setEnabled(false);
+        this.setLocationRelativeTo(null);
     }
     
     /*METODO PARA VERIFICAR*/
@@ -289,9 +291,9 @@ public class VistaPuntaje extends javax.swing.JFrame {
        }while(comp=false);
         
         /*SE REINICIAN A 0 LOS CAMPOS DE PUNTAJE*/
-        txtPuntajeNombre.setText("");
-        txtPuntajeAnimal.setText("");
-        txtPuntajeColor.setText("");
+        //txtPuntajeNombre.setText("");
+        //txtPuntajeAnimal.setText("");
+        //txtPuntajeColor.setText("");
         
         
         btnSigRonda.setEnabled(true);
@@ -299,11 +301,11 @@ public class VistaPuntaje extends javax.swing.JFrame {
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
         
-        
         this.dispose();                   //Metodo para cerrar ventana actual sin perder datos
        
         Vista.txtLetraGen.setText("");      
-        
+        //Vista vistx=new Vista();
+        //vistx.setVisible(true);
         
     }//GEN-LAST:event_btnSigRondaActionPerformed
 
@@ -390,7 +392,7 @@ public class VistaPuntaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TablaDatos;
+    public static javax.swing.JTable TablaDatos;
     private javax.swing.JTable TablaPuntos;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnSigRonda;

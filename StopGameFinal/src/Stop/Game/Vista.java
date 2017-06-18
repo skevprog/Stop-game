@@ -7,6 +7,7 @@ package Stop.Game;
 
 
 
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,14 +23,15 @@ Integer a=1;            //Variable que indicara el numero de ronda
 
 
     VistaPuntaje vistpunt=new VistaPuntaje();                               //SE INSTANCIA LA VENTANA PUNTAJE
-
-
-    DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE
+   
+    DefaultTableModel modelo=new DefaultTableModel(){                       //SE HACEN TODAS LAS CELDAS NO EDITABLES PARA EVITAR FRAUDE    
     @Override
     public boolean isCellEditable(int row, int column) {
        return false;
     }  
 };
+
+
 
     /*METODO CONSTRUCTOR*/
     public Vista() {
@@ -38,6 +40,9 @@ Integer a=1;            //Variable que indicara el numero de ronda
         txtNombre.setEditable(false);
         txtAnimal.setEditable(false);
         txtColor.setEditable(false);
+        txtLetraGen.setEditable(false);
+        this.setLocationRelativeTo(null);
+        
     }
    
     
@@ -62,7 +67,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Stop Game");
+        jLabel1.setText("Parar");
 
         btnFinalizar.setText("Parar");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +187,8 @@ Integer a=1;            //Variable que indicara el numero de ronda
         VistaPuntaje.txtPuntajeColor.setText("0");
         VistaPuntaje.txtPuntajeColor.setEditable(false);
         
-        }else {VistaPuntaje.txtPuntajeNombre.setEditable(true);
+        }else {
+        VistaPuntaje.txtPuntajeNombre.setEditable(true);
         VistaPuntaje.txtPuntajeAnimal.setEditable(true);
         VistaPuntaje.txtPuntajeColor.setEditable(true);
            }
@@ -208,11 +214,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
          VistaPuntaje.txtPuntajeColor.setEditable(false);
     }
         
-          
-       
-        
-        
-       
+
         
         Object [] Datos=new Object [5];               //Se crea un arreglo que contendrá los datos agregados
         String letra=String.valueOf(randomLet);         //se convierte el char de la letra generada en un String para pasarlo a la tabla
@@ -224,9 +226,9 @@ Integer a=1;            //Variable que indicara el numero de ronda
         Datos[4]=txtAnimal.getText().trim();               
         
         
-        vistpunt.modelo.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
+        vistpunt.modelox.addRow(Datos);                  //Se añade la fila con datos a la tabla en la vista de puntaje
        
- 
+
         /*Se reinicia el campo de texto y queda en blanco*/
         txtNombre.setText("");     
         txtAnimal.setText("");
@@ -237,7 +239,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
         vistpunt.setVisible(true);
         
         /*Se cierra ventana principal para pasar a la ventana puntaje*/
-      
+      //dispose();
        
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
@@ -309,6 +311,7 @@ Integer a=1;            //Variable que indicara el numero de ronda
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Vista().setVisible(true);
+                
             }
         });
     }
