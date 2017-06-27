@@ -295,17 +295,16 @@ public class VistaPuntaje extends javax.swing.JFrame {
         //txtPuntajeAnimal.setText("");
         //txtPuntajeColor.setText("");
         
-        
+        btnSumar.setEnabled(false);
         btnSigRonda.setEnabled(true);
     }//GEN-LAST:event_btnSumarActionPerformed
 
     private void btnSigRondaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigRondaActionPerformed
         
-        this.dispose();                   //Metodo para cerrar ventana actual sin perder datos
+       // this.setVisible(false);                   //Metodo para cerrar ventana actual sin perder datos
        
         Vista.txtLetraGen.setText("");      
-        //Vista vistx=new Vista();
-        //vistx.setVisible(true);
+       // Vista.abrir1.setVisible(true);
         
     }//GEN-LAST:event_btnSigRondaActionPerformed
 
