@@ -48,10 +48,10 @@ DefaultTableModel puntaje=new DefaultTableModel();
         datos.addColumn("Ingreso");
         TablaPuntaje.setModel(puntaje);
         puntaje.addColumn("Puntaje");
- cont=1;
- btnStop.setEnabled(false);
+        cont=1;
+        btnStop.setEnabled(false);
         this.setLocationRelativeTo(null);
-        n=0;
+        txtResp.setEditable(false);
         s=3;
     }
    
@@ -270,12 +270,19 @@ DefaultTableModel puntaje=new DefaultTableModel();
             System.out.println("correcto");
             datos.addRow(Datos);
             puntaje.addRow(punt);
-            
+            btnStop.setEnabled(false);
+            btnGenLet.setEnabled(true);
+            txtLetraGen.setText("");
+            txtResp.setEditable(false);
         }
         else{
-            --s;
-            System.out.println("intente nuevamente");
-        
+           s--;
+            JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan "+s+" intento/s");
+            System.out.println("s="+s);
+         if(s==0){
+             JOptionPane.showMessageDialog(null, "Game Over");
+             System.exit(0);
+         }
         }
         
       
@@ -309,7 +316,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
     private void btnGenLetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenLetActionPerformed
        btnStop.setEnabled(true);
        btnGenLet.setEnabled(false);
-        
+       txtResp.setEditable(true);
            
            
     switch (cont) {
@@ -375,8 +382,10 @@ DefaultTableModel puntaje=new DefaultTableModel();
     palabra="uron";
    
     }
+    
         cont++;
-        System.out.println(cont);
+        //System.out.println(cont);         //Traza para evaluar codigo
+       
        
     }//GEN-LAST:event_btnGenLetActionPerformed
 
