@@ -71,6 +71,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         TablaDatos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPuntaje = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -145,43 +146,50 @@ DefaultTableModel puntaje=new DefaultTableModel();
         });
         jScrollPane2.setViewportView(TablaPuntaje);
 
+        jButton1.setText("Nivel 2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(20, 20, 20))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(20, 20, 20))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLetraGen, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGenLet, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnGenLet, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(133, 133, 133)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
@@ -292,7 +300,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         
        
         
-        //Se añade la fila con datos a la tabla puntaje
+        
            
         
               
@@ -322,23 +330,23 @@ DefaultTableModel puntaje=new DefaultTableModel();
            
     switch (cont) {
         case 1:
-            letra="c";
+            letra="e";
             
             break;
         case 2:
-            letra=  "e";
+            letra=  "a";
             
             break;
         case 3:
-            letra="a";
+            letra="s";
             
             break;
         case 4:
-            letra="u";
+            letra="g";
             
             break;
         case 5:
-            letra="o";
+            letra="c";
            
             break;
         case 6:
@@ -364,23 +372,23 @@ DefaultTableModel puntaje=new DefaultTableModel();
     
     if(letra.equals("e")){
     
-    JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");
+    JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
     palabra="elefante";
     
     }
     if(letra.equals("c")){
-    JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");
+    JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
     palabra="caracol";
         
     }
-    if(letra.equals("o")){
-         JOptionPane.showMessageDialog(null, "La palabra posee 3 letras");
-    palabra="oso";
+    if(letra.equals("g")){
+    JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
+    palabra="gato";
    
     }
-    if(letra.equals("u")){
-         JOptionPane.showMessageDialog(null, "La palabra posee 4 letras");
-    palabra="uron";
+    if(letra.equals("s")){
+         JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
+    palabra="serpiente";
    
     }
     
@@ -433,6 +441,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
     private javax.swing.JTable TablaPuntaje;
     private javax.swing.JButton btnGenLet;
     private javax.swing.JButton btnStop;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
