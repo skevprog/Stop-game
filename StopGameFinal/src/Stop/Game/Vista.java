@@ -26,6 +26,8 @@ public static String letra;
 public static String palabra;
 public static Integer p=0;
 public static int cont;
+public static int n;
+public static int s;
 
 
 
@@ -49,7 +51,8 @@ DefaultTableModel puntaje=new DefaultTableModel();
  cont=1;
  btnStop.setEnabled(false);
         this.setLocationRelativeTo(null);
-        
+        n=0;
+        s=3;
     }
    
     
@@ -244,33 +247,50 @@ DefaultTableModel puntaje=new DefaultTableModel();
       */  
 
         
-     btnGenLet.setEnabled(true);
-        btnStop.setEnabled(false);
+        
+        
         Object[] Datos=new Object[5];
         Datos[0]=letra;
         Datos[1]=palabra;
         Datos[2]=txtResp.getText().trim();
         
-        datos.addRow(Datos);
+         /*Vector para la tabla de puntajes*/
+        Integer []punt=new Integer[5];
+        punt[0]=p;
+        
+        
+        
+        /*Se coloca puntaje si la palabra es correcta o no*/
         
         String Ingreso=txtResp.getText();
         
-        /*Se coloca puntaje si la palabra es correcta o no*/
+        
         if(Ingreso.equals(palabra)){
             p=5;
-        }else{
-            p=0;
+            System.out.println("correcto");
+            datos.addRow(Datos);
+            puntaje.addRow(punt);
+            
+        }
+        else{
+            --s;
+            System.out.println("intente nuevamente");
+        
         }
         
-        /*Vector para la tabla de puntajes*/
-        Integer []punt=new Integer[5];
-        punt[0]=p;
-        puntaje.addRow(punt);    
+      
+        
+        
+        
+       
+        
+        //Se añade la fila con datos a la tabla puntaje
+           
         
               
         
         
-                  //Se añade la fila con datos a la tabla en la vista de puntaje
+                  
        
 
         /*Se reinicia el campo de texto y queda en blanco*/
@@ -278,10 +298,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
           
          
 
-        /*Se Hace visible la ventaba puntaje*/
-        
-        /*Se cierra ventana principal para pasar a la ventana puntaje*/
-      //this.setVisible(false);
+       
        
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -366,15 +383,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
     private void txtLetraGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetraGenActionPerformed
 
     }//GEN-LAST:event_txtLetraGenActionPerformed
- 
-   
-    /*METODO PARA GENERAR LETRA ALEATORIA*/
-    public char GenerarLetra(){
-        char s=(char)(Math.random()*26+'a');
-        s=(char) (s - 'a' + 'A');
-        return s;
-    }
-    
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
