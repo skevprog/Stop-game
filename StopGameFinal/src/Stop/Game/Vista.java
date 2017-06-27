@@ -24,7 +24,7 @@ public class Vista extends javax.swing.JFrame {
     
 public static String letra;
 public static String palabra;
-public static Integer p=0;
+public static Integer p=5;
 public static int cont;
 public static int n;
 public static int s;
@@ -267,7 +267,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         
         if(Ingreso.equals(palabra)){
             p=5;
-            System.out.println("correcto");
+            JOptionPane.showMessageDialog(null, "Correcto!");
             datos.addRow(Datos);
             puntaje.addRow(punt);
             btnStop.setEnabled(false);
@@ -276,7 +276,8 @@ DefaultTableModel puntaje=new DefaultTableModel();
             txtResp.setEditable(false);
         }
         else{
-           s--;
+           s--;         //Se restan las vidas
+           p--;         //se resta puntaje cada vez que vuelve a intentarlo
             JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan "+s+" intento/s");
             System.out.println("s="+s);
          if(s==0){
@@ -321,7 +322,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
            
     switch (cont) {
         case 1:
-            letra="i";
+            letra="c";
             
             break;
         case 2:
@@ -355,7 +356,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         
     /*Generar palabra dependiendo de la letra que se cree*/
     if(letra.equals("a")){
-        JOptionPane.showMessageDialog(null, "La palabra posee 5 letras");
+        JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");
     palabra="abeja";
     
     
@@ -367,9 +368,9 @@ DefaultTableModel puntaje=new DefaultTableModel();
     palabra="elefante";
     
     }
-    if(letra.equals("i")){
-    JOptionPane.showMessageDialog(null, "La palabra posee 6 letras");
-        palabra="iguana";
+    if(letra.equals("c")){
+    JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");
+    palabra="caracol";
         
     }
     if(letra.equals("o")){
