@@ -24,7 +24,7 @@ public class Vista extends javax.swing.JFrame {
     
 public static String letra;
 public static String palabra;
-public static Integer p=5;
+public static Integer p=3;
 public static int cont;
 public static int n;
 public static int s;
@@ -50,9 +50,10 @@ DefaultTableModel puntaje=new DefaultTableModel();
         puntaje.addColumn("Puntaje");
         cont=1;
         btnStop.setEnabled(false);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);       //Panel en el medio de la pantalla
         txtResp.setEditable(false);
-        s=3;
+        s=5;                            //Vidas
+        btnNivel2.setEnabled(false);
     }
    
     
@@ -71,14 +72,14 @@ DefaultTableModel puntaje=new DefaultTableModel();
         TablaDatos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPuntaje = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnNivel2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Parar");
+        jLabel1.setText("Stop");
 
         btnStop.setText("Parar");
         btnStop.addActionListener(new java.awt.event.ActionListener() {
@@ -136,9 +137,16 @@ DefaultTableModel puntaje=new DefaultTableModel();
                 "Puntos"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -146,7 +154,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         });
         jScrollPane2.setViewportView(TablaPuntaje);
 
-        jButton1.setText("Nivel 2");
+        btnNivel2.setText("Nivel 2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +187,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
                         .addGap(133, 133, 133)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnNivel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -188,7 +196,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(btnNivel2))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +268,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         Object[] Datos=new Object[5];
         Datos[0]=letra;
         Datos[1]=palabra;
-        Datos[2]=txtResp.getText().trim();
+        Datos[2]=txtResp.getText().toLowerCase().trim();
         
          /*Vector para la tabla de puntajes*/
         Integer []punt=new Integer[5];
@@ -270,11 +278,11 @@ DefaultTableModel puntaje=new DefaultTableModel();
         
         /*Se coloca puntaje si la palabra es correcta o no*/
         
-        String Ingreso=txtResp.getText();
+        String Ingreso=txtResp.getText().toLowerCase().trim();
         
         
         if(Ingreso.equals(palabra)){
-            p=5;
+            p=3;
             JOptionPane.showMessageDialog(null, "Correcto!");
             datos.addRow(Datos);
             puntaje.addRow(punt);
@@ -350,8 +358,27 @@ DefaultTableModel puntaje=new DefaultTableModel();
            
             break;
         case 6:
-            System.out.println("termino la partida");
-            System.exit(0);
+            System.out.println("Partida Finalizada");
+            Integer s=0;
+            
+            int limite=puntaje.getRowCount();
+            
+            for(int i=0;i<limite;i++){
+            s=   s+(Integer) puntaje.getValueAt(i, 0);
+            }
+            
+            JOptionPane.showMessageDialog(null,"Su puntaje es de: "+s+"puntos");
+            if(s>=12){
+                JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitad");
+                btnStop.setEnabled(false);
+                btnGenLet.setEnabled(false);
+                btnNivel2.setEnabled(true);
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Game Over");
+                System.exit(0);
+            }
+            
             break;
         default:
             break;
@@ -440,8 +467,8 @@ DefaultTableModel puntaje=new DefaultTableModel();
     private javax.swing.JTable TablaDatos;
     private javax.swing.JTable TablaPuntaje;
     private javax.swing.JButton btnGenLet;
+    private javax.swing.JButton btnNivel2;
     private javax.swing.JButton btnStop;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
