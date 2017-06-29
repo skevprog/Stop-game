@@ -54,6 +54,13 @@ DefaultTableModel puntaje=new DefaultTableModel();
         txtResp.setEditable(false);
         s=5;                            //Vidas
         btnNivel2.setEnabled(false);
+        JOptionPane.showMessageDialog(null,"Bienvenido a Stop!");
+        JOptionPane.showMessageDialog(null, "Instrucciones \n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra'"+
+                                     " el cual generara la letra con la que tiene que comenzar la palabra ingresada " +"\n 2-Al instante se "+
+                                     " otorgará una pista al jugador para que adivine la palabra que debe ingresar."+" \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea"
+                                    +  "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton "+" 'parar' "+" para que se valide el ingreso"+
+                "\n \t Buena Suerte!");
+        JOptionPane.showMessageDialog(null,"Nivel 1 \n Animales "+"\n(nombre de animales)");
     }
    
     
