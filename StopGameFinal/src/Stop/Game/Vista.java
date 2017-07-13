@@ -5,80 +5,64 @@
  */
 package Stop.Game;
 
-
-
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
-
 
 /**
  *
  * @author Kevin
  */
-
-
 public class Vista extends javax.swing.JFrame {
-    
-    
-public static String letra;
-public static String palabra;
-public static Integer p=3;
-public static int cont;
-public static int n;
-public static int s;
 
+    public static String letra;
+    public static String palabra;
+    public static Integer p = 3;
+    public static int cont;
+    public static int n;
+    public static int s;
 
+    DefaultTableModel datos = new DefaultTableModel() {
 
-DefaultTableModel datos=new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            //all cells false
+            return false;
+        }
+    };
 
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        //all cells false
-        return false;
-    }
-};
+    DefaultTableModel puntaje = new DefaultTableModel() {
 
-DefaultTableModel puntaje=new DefaultTableModel(){
-
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        //all cells false
-        return false;
-    }
-};
-
-   
-
-
-
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            //all cells false
+            return false;
+        }
+    };
 
     /*METODO CONSTRUCTOR*/
     public Vista() {
         initComponents();
-    TablaDatos.setModel(datos);
+        TablaDatos.setModel(datos);
         datos.addColumn("Letra");
         datos.addColumn("Palabra");
         datos.addColumn("Ingreso");
         TablaPuntaje.setModel(puntaje);
         puntaje.addColumn("Puntaje");
-        cont=1;
+        cont = 1;
         btnStop.setEnabled(false);
-        this.setLocationRelativeTo(null);       //Panel en el medio de la pantalla
+        this.setLocationRelativeTo(null);                           //Panel en el medio de la pantalla
         txtResp.setEditable(false);
-        s=5;                            //Vidas
+        s = 5;                                                       //Vidas
         btnNivel2.setEnabled(false);
-        JOptionPane.showMessageDialog(null,"Bienvenido a Stop!"); //Mensaje bienvenida
-        JOptionPane.showMessageDialog(null, "Instrucciones \n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra'"+
-                                     " el cual generara la letra con la que tiene que comenzar la palabra ingresada " +"\n 2-Al instante se "+
-                                     " otorgará una pista al jugador para que adivine la palabra que debe ingresar."+" \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea"
-                                    +  "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton "+" 'parar' "+" para que se valide el ingreso"+
-                "\n \t Buena Suerte!");
-        JOptionPane.showMessageDialog(null,"Nivel 1 \n Animales "+"\n(nombre de animales)");
+        JOptionPane.showMessageDialog(null, "Bienvenido a Stop!"); //Mensaje bienvenida
+        JOptionPane.showMessageDialog(null, "Instrucciones \n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra'"
+                + " el cual generara la letra con la que tiene que comenzar la palabra ingresada " + "\n 2-Al instante se "
+                + " otorgará una pista al jugador para que adivine la palabra que debe ingresar." + " \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea"
+                + "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso"
+                + "\n \t Buena Suerte!");
+        JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
     }
-   
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,9 +224,9 @@ DefaultTableModel puntaje=new DefaultTableModel(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
-       
+
         /*CONDICIÓNES PARA QUE SI LA PRIMERA LETRA INGRESADA NO COINCIDE CON LA LETRA GENERADA SE OBTENGA 0 PUNTOS*/
-        /*
+ /*
         char nom=txtNombre.getText().toUpperCase().trim().charAt(0);
         char ani=txtAnimal.getText().toUpperCase().trim().charAt(0);
         char col=txtColor.getText().toUpperCase().trim().charAt(0);
@@ -282,29 +266,22 @@ DefaultTableModel puntaje=new DefaultTableModel(){
          VistaPuntaje.txtPuntajeColor.setText("0");
          VistaPuntaje.txtPuntajeColor.setEditable(false);
     }
-      */  
+         */
+        Object[] Datos = new Object[5];
+        Datos[0] = letra;
+        Datos[1] = palabra;
+        Datos[2] = txtResp.getText().toLowerCase().trim();
 
-        
-        
-        
-        Object[] Datos=new Object[5];
-        Datos[0]=letra;
-        Datos[1]=palabra;
-        Datos[2]=txtResp.getText().toLowerCase().trim();
-        
-         /*Vector para la tabla de puntajes*/
-        Integer []punt=new Integer[5];
-        punt[0]=p;
-        
-        
-        
+        /*Vector para la tabla de puntajes*/
+        Integer[] punt = new Integer[5];
+        punt[0] = p;
+
         /*Se coloca puntaje si la palabra es correcta o no*/
-        
-        String Ingreso=txtResp.getText().toLowerCase().trim();
-        
+        String Ingreso = txtResp.getText().toLowerCase().trim();
+
         /*Control de ingreso*/
-        if(Ingreso.equals(palabra)){
-            p=3;
+        if (Ingreso.equals(palabra)) {
+            p = 3;
             JOptionPane.showMessageDialog(null, "Correcto!");
             datos.addRow(Datos);
             puntaje.addRow(punt);
@@ -312,132 +289,124 @@ DefaultTableModel puntaje=new DefaultTableModel(){
             btnGenLet.setEnabled(true);
             txtLetraGen.setText("");
             txtResp.setEditable(false);
-        }
-        else{
-           s--;         //Se restan las vidas
-           p--;         //se resta puntaje cada vez que vuelve a intentarlo
-            JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan "+s+" intento/s");
-            System.out.println("s="+s);
-         if(s==0){
-             JOptionPane.showMessageDialog(null, "Game Over");
-             System.exit(0);
-         }
-        }
-
-        /*Se reinicia el campo de texto y queda en blanco*/
-        txtResp.setText("");     
-          
-         
-
-       
-       
-    }//GEN-LAST:event_btnStopActionPerformed
-
-    private void txtRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespActionPerformed
-        
-    }//GEN-LAST:event_txtRespActionPerformed
-
-    private void btnGenLetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenLetActionPerformed
-       btnStop.setEnabled(true);
-       btnGenLet.setEnabled(false);
-       txtResp.setEditable(true);
-           
-           
-       /*Dependiendo la ronda se indicara una letra*/
-    switch (cont) {
-        case 1:
-            letra="e";
-            
-            break;
-        case 2:
-            letra=  "a";
-            
-            break;
-        case 3:
-            letra="s";
-            
-            break;
-        case 4:
-            letra="g";
-            
-            break;
-        case 5:
-            letra="c";
-           
-            break;
-        case 6:
-            System.out.println("Partida Finalizada");
-            Integer s=0;
-            
-            int limite=puntaje.getRowCount();
-            
-            for(int i=0;i<limite;i++){
-            s=   s+(Integer) puntaje.getValueAt(i, 0);
-            }
-            
-            JOptionPane.showMessageDialog(null,"Su puntaje es de: "+s+"puntos");
-            if(s>=12){
-                JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitad");
-                btnStop.setEnabled(false);
-                btnGenLet.setEnabled(false);
-                btnNivel2.setEnabled(true);
-                
-            }else{
+        } else {
+            s--;         //Se restan las vidas
+            p--;         //se resta puntaje cada vez que vuelve a intentarlo
+            JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
+            System.out.println("s=" + s);
+            if (s == 0) {
                 JOptionPane.showMessageDialog(null, "Game Over");
                 System.exit(0);
             }
-            
-            break;
-        default:
-            break;
-    }
-        
+        }
 
-        JOptionPane.showMessageDialog(null,"La letra generada para esta ronda es: "+letra);     //Mostrar la letra en una ventana                                                   //Pasaje de char a String
+        /*Se reinicia el campo de texto y queda en blanco*/
+        txtResp.setText("");
+
+
+    }//GEN-LAST:event_btnStopActionPerformed
+
+    private void txtRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespActionPerformed
+
+    }//GEN-LAST:event_txtRespActionPerformed
+
+    private void btnGenLetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenLetActionPerformed
+        btnStop.setEnabled(true);
+        btnGenLet.setEnabled(false);
+        txtResp.setEditable(true);
+
+        /*Dependiendo la ronda se indicara una letra*/
+        switch (cont) {
+            case 1:
+                letra = "e";
+
+                break;
+            case 2:
+                letra = "a";
+
+                break;
+            case 3:
+                letra = "s";
+
+                break;
+            case 4:
+                letra = "g";
+
+                break;
+            case 5:
+                letra = "c";
+
+                break;
+            case 6:
+                System.out.println("Partida Finalizada");
+                Integer s = 0;
+
+                int limite = puntaje.getRowCount();
+
+                for (int i = 0; i < limite; i++) {
+                    s = s + (Integer) puntaje.getValueAt(i, 0);
+                }
+
+                JOptionPane.showMessageDialog(null, "Su puntaje es de: " + s + "puntos");
+                if (s >= 12) {
+                    JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitad");
+                    btnStop.setEnabled(false);
+                    btnGenLet.setEnabled(false);
+                    btnNivel2.setEnabled(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Game Over");
+                    System.exit(0);
+                }
+
+                break;
+            default:
+                break;
+        }
+
+        JOptionPane.showMessageDialog(null, "La letra generada para esta ronda es: " + letra);     //Mostrar la letra en una ventana                                                   //Pasaje de char a String
         txtLetraGen.setText(letra);                                                                 //Colocar la letra generada en un cuadro para recordar
-        txtLetraGen.setEditable(false);        
-        
-    /*Generar palabra dependiendo de la letra que se cree*/
-    if(letra.equals("a")){
-        JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");
-    palabra="abeja";
-    
-    
-    }
-    
-    if(letra.equals("e")){
-    
-    JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
-    palabra="elefante";
-    
-    }
-    if(letra.equals("c")){
-    JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
-    palabra="caracol";
-        
-    }
-    if(letra.equals("g")){
-    JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
-    palabra="gato";
-   
-    }
-    if(letra.equals("s")){
-         JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
-    palabra="serpiente";
-   
-    }
-    
+        txtLetraGen.setEditable(false);
+
+        /*Generar palabra dependiendo de la letra que se cree*/
+        if (letra.equals("a")) {
+            JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");
+            palabra = "abeja";
+
+        }
+
+        if (letra.equals("e")) {
+
+            JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
+            palabra = "elefante";
+
+        }
+        if (letra.equals("c")) {
+            JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
+            palabra = "caracol";
+
+        }
+        if (letra.equals("g")) {
+            JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
+            palabra = "gato";
+
+        }
+        if (letra.equals("s")) {
+            JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
+            palabra = "serpiente";
+
+        }
+
         cont++;
         //System.out.println(cont);         //Traza para evaluar codigo
-       
-       
+
+
     }//GEN-LAST:event_btnGenLetActionPerformed
 
     private void txtLetraGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetraGenActionPerformed
 
     }//GEN-LAST:event_txtLetraGenActionPerformed
 
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -466,7 +435,7 @@ DefaultTableModel puntaje=new DefaultTableModel(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Vista().setVisible(true);
-                
+
             }
         });
     }
