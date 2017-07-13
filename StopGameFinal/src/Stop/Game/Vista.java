@@ -31,8 +31,23 @@ public static int s;
 
 
 
-DefaultTableModel datos=new DefaultTableModel();
-DefaultTableModel puntaje=new DefaultTableModel();
+DefaultTableModel datos=new DefaultTableModel(){
+
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        //all cells false
+        return false;
+    }
+};
+
+DefaultTableModel puntaje=new DefaultTableModel(){
+
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        //all cells false
+        return false;
+    }
+};
 
    
 
@@ -131,7 +146,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return false;
             }
         });
         jScrollPane1.setViewportView(TablaDatos);
@@ -287,7 +302,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
         
         String Ingreso=txtResp.getText().toLowerCase().trim();
         
-        
+        /*Control de ingreso*/
         if(Ingreso.equals(palabra)){
             p=3;
             JOptionPane.showMessageDialog(null, "Correcto!");
