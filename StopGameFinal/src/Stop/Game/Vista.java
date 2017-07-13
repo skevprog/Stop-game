@@ -308,21 +308,6 @@ DefaultTableModel puntaje=new DefaultTableModel();
              System.exit(0);
          }
         }
-        
-      
-        
-        
-        
-       
-        
-        
-           
-        
-              
-        
-        
-                  
-       
 
         /*Se reinicia el campo de texto y queda en blanco*/
         txtResp.setText("");     
@@ -343,6 +328,7 @@ DefaultTableModel puntaje=new DefaultTableModel();
        txtResp.setEditable(true);
            
            
+       /*Dependiendo la ronda se indicara una letra*/
     switch (cont) {
         case 1:
             letra="e";
