@@ -5,14 +5,17 @@
  */
 package Stop.Game;
 
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Kevin
  */
-public class Vista extends javax.swing.JFrame {
+public class Vista extends javax.swing.JFrame implements ActionListener{
 
     public static String letra;
     public static String palabra;
@@ -21,6 +24,10 @@ public class Vista extends javax.swing.JFrame {
     public static int n;
     public static int s;
 
+    /*Se instancia la clase timer que creara el cronometro*/
+     Timer tm=new Timer(1000, this);       
+    int time = 0;
+    
     DefaultTableModel datos = new DefaultTableModel() {
 
         @Override
@@ -61,6 +68,7 @@ public class Vista extends javax.swing.JFrame {
                 + "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso"
                 + "\n \t Buena Suerte!");
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -79,6 +87,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPuntaje = new javax.swing.JTable();
         btnNivel2 = new javax.swing.JButton();
+        jTime = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -167,9 +176,9 @@ public class Vista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -187,8 +196,9 @@ public class Vista extends javax.swing.JFrame {
                                     .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnGenLet, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(133, 133, 133)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -200,9 +210,11 @@ public class Vista extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnNivel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(btnNivel2))
+                    .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +279,7 @@ public class Vista extends javax.swing.JFrame {
          VistaPuntaje.txtPuntajeColor.setEditable(false);
     }
          */
+         
         Object[] Datos = new Object[5];
         Datos[0] = letra;
         Datos[1] = palabra;
@@ -289,11 +302,13 @@ public class Vista extends javax.swing.JFrame {
             btnGenLet.setEnabled(true);
             txtLetraGen.setText("");
             txtResp.setEditable(false);
+            
         } else {
             s--;         //Se restan las vidas
             p--;         //se resta puntaje cada vez que vuelve a intentarlo
             JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
             System.out.println("s=" + s);
+            
             if (s == 0) {
                 JOptionPane.showMessageDialog(null, "Game Over");
                 System.exit(0);
@@ -302,7 +317,8 @@ public class Vista extends javax.swing.JFrame {
 
         /*Se reinicia el campo de texto y queda en blanco*/
         txtResp.setText("");
-
+        
+        
 
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -310,6 +326,23 @@ public class Vista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtRespActionPerformed
 
+    /*Metodo que sumara el tiempo del timer*/
+    public void logic(){
+    time++;
+    jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
+    if(time==10){
+        System.exit(0);
+    }
+    
+}
+    
+    /*Sobreescritura del metodo actionPerformed(Controlara el timer)*/
+    @Override               
+    public void actionPerformed(ActionEvent e) {
+        logic();
+    }
+    
+    
     private void btnGenLetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenLetActionPerformed
         btnStop.setEnabled(true);
         btnGenLet.setEnabled(false);
@@ -400,7 +433,7 @@ public class Vista extends javax.swing.JFrame {
         cont++;
         //System.out.println(cont);         //Traza para evaluar codigo
 
-
+        tm.start();         //Se inicia el cronometro
     }//GEN-LAST:event_btnGenLetActionPerformed
 
     private void txtLetraGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetraGenActionPerformed
@@ -451,6 +484,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTime;
     public static javax.swing.JTextField txtLetraGen;
     public static javax.swing.JTextField txtResp;
     // End of variables declaration//GEN-END:variables
