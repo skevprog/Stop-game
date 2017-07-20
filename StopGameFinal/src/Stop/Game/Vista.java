@@ -302,7 +302,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             btnGenLet.setEnabled(true);
             txtLetraGen.setText("");
             txtResp.setEditable(false);
-            
+            tm.stop();          //se detiene el tiempo
+            time=0;             //se reinicia a 0
         } else {
             s--;         //Se restan las vidas
             p--;         //se resta puntaje cada vez que vuelve a intentarlo
@@ -319,6 +320,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         txtResp.setText("");
         
         
+        
 
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -331,12 +333,13 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
     if(time==10){
-        System.exit(0);
+        JOptionPane.showMessageDialog(null, "Se acabó el tiempo");
     }
-    
 }
+
     
     /*Sobreescritura del metodo actionPerformed(Controlara el timer)*/
+    
     @Override               
     public void actionPerformed(ActionEvent e) {
         logic();
