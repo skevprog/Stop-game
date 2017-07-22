@@ -68,7 +68,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 + "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso"
                 + "\n \t Buena Suerte!");
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
-        
+        jTime.setEditable(false);
+        txtLetraGen.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -320,7 +321,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         txtResp.setText("");
         
         
-        
 
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -332,8 +332,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     public void logic(){
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
-    if(time==10){
-        JOptionPane.showMessageDialog(null, "Se acabó el tiempo");
+    if(time==20){
+        JOptionPane.showMessageDialog(null, "Game Over");
     }
 }
 
