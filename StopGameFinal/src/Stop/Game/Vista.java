@@ -293,7 +293,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         /*Se coloca puntaje si la palabra es correcta o no*/
         String Ingreso = txtResp.getText().toLowerCase().trim();
-
+        
         /*Control de ingreso*/
         if (Ingreso.equals(palabra)) {
             tm.stop();          //se detiene el tiempo
@@ -318,10 +318,35 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 System.exit(0);
             }
         }
+        /*Ultima Ronda*/
+        if(cont==6){
+            Integer s = 0;
+                System.out.println("Partida Finalizada");
+                
+
+                int limite = puntaje.getRowCount();
+
+                
+                for (int i = 0; i < limite; i++) {                          //Ciclo for suma el puntaje que se encuentra en la tabla puntaje
+                    s = s + (Integer) puntaje.getValueAt(i, 0);
+                }
+
+                JOptionPane.showMessageDialog(null, "Su puntaje es de: " + s + "puntos");
+                if (s >= 12) {
+                    JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitado");
+                    btnStop.setEnabled(false);
+                    btnGenLet.setEnabled(false);
+                    btnNivel2.setEnabled(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Game Over");
+                    System.exit(0);
+                }
+        }
 
         /*Se reinicia el campo de texto y queda en blanco*/
         txtResp.setText("");
-        
+        System.out.println(cont);
         
 
     }//GEN-LAST:event_btnStopActionPerformed
@@ -374,29 +399,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 break;
             case 5:
                 letra = "c";
-
-                break;
-            case 6:
-                System.out.println("Partida Finalizada");
-                Integer s = 0;
-
-                int limite = puntaje.getRowCount();
-
-                for (int i = 0; i < limite; i++) {
-                    s = s + (Integer) puntaje.getValueAt(i, 0);
-                }
-
-                JOptionPane.showMessageDialog(null, "Su puntaje es de: " + s + "puntos");
-                if (s >= 12) {
-                    JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitad");
-                    btnStop.setEnabled(false);
-                    btnGenLet.setEnabled(false);
-                    btnNivel2.setEnabled(true);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Game Over");
-                    System.exit(0);
-                }
 
                 break;
             default:
