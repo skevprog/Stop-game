@@ -70,6 +70,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
+        jTextBox.setEditable(false);
         
     }
 
@@ -90,6 +91,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         TablaPuntaje = new javax.swing.JTable();
         btnNivel2 = new javax.swing.JButton();
         jTime = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextBox = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -173,13 +176,17 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         btnNivel2.setText("Nivel 2");
 
+        jTextBox.setColumns(20);
+        jTextBox.setRows(5);
+        jScrollPane3.setViewportView(jTextBox);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -197,16 +204,17 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnGenLet, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGap(18, 18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133)))
+                        .addGap(121, 121, 121)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnNivel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,17 +225,22 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                         .addComponent(jLabel1)
                         .addComponent(btnNivel2))
                     .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnStop))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(btnStop))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGenLet)
+                            .addComponent(txtLetraGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGenLet)
-                    .addComponent(txtLetraGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -305,6 +318,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             btnGenLet.setEnabled(true);
             txtLetraGen.setText("");
             txtResp.setEditable(false);
+            jTextBox.setText("");
             
             time=0;             //se reinicia a 0
         } else {
@@ -411,7 +425,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         /*Generar palabra dependiendo de la letra que se cree*/
         if (letra.equals("a")) {
-            JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");
+            JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //Abeja
+            jTextBox.setText("De celda en celda voy \n pero presa no estoy.");
             palabra = "abeja";
 
         }
@@ -419,21 +434,25 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         if (letra.equals("e")) {
 
             JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
+            jTextBox.setText("La palabra posee 8 letras");
             palabra = "elefante";
 
         }
         if (letra.equals("c")) {
             JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
+            jTextBox.setText("¿Que animal tiene cara de verdura?");
             palabra = "caracol";
 
         }
         if (letra.equals("g")) {
             JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
+            jTextBox.setText("¿Cuál es el animal que es dos veces animal?");
             palabra = "gato";
 
         }
         if (letra.equals("s")) {
-            JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
+            JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");         //serpiente
+            jTextBox.setText("La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
             palabra = "serpiente";
 
         }
@@ -492,6 +511,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextBox;
     private javax.swing.JTextField jTime;
     public static javax.swing.JTextField txtLetraGen;
     public static javax.swing.JTextField txtResp;
