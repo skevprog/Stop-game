@@ -52,7 +52,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         TablaDatos.setModel(datos);
         datos.addColumn("Letra");
         datos.addColumn("Palabra");
-        datos.addColumn("Ingreso");
+        datos.addColumn("Tiempo transcurrido");
         TablaPuntaje.setModel(puntaje);
         puntaje.addColumn("Puntaje");
         cont = 1;
@@ -70,6 +70,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -284,7 +285,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         Object[] Datos = new Object[5];
         Datos[0] = letra;
         Datos[1] = palabra;
-        Datos[2] = txtResp.getText().toLowerCase().trim();
+        Datos[2] = (time+" segundos");
 
         /*Vector para la tabla de puntajes*/
         Integer[] punt = new Integer[5];
@@ -295,6 +296,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         /*Control de ingreso*/
         if (Ingreso.equals(palabra)) {
+            tm.stop();          //se detiene el tiempo
             p = 3;
             JOptionPane.showMessageDialog(null, "Correcto!");
             datos.addRow(Datos);
@@ -303,13 +305,13 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             btnGenLet.setEnabled(true);
             txtLetraGen.setText("");
             txtResp.setEditable(false);
-            tm.stop();          //se detiene el tiempo
+            
             time=0;             //se reinicia a 0
         } else {
             s--;         //Se restan las vidas
             p--;         //se resta puntaje cada vez que vuelve a intentarlo
             JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
-            System.out.println("s=" + s);
+            //System.out.println("s=" + s);         //traza para evaluar el valor de s
             
             if (s == 0) {
                 JOptionPane.showMessageDialog(null, "Game Over");
@@ -334,6 +336,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
     if(time==20){
         JOptionPane.showMessageDialog(null, "Game Over");
+        System.exit(0);
     }
 }
 
