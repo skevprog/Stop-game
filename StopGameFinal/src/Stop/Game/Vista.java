@@ -63,9 +63,10 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         btnNivel2.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Bienvenido a Stop!"); //Mensaje bienvenida
         JOptionPane.showMessageDialog(null, "Instrucciones \n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra'"
-                + " el cual generara la letra con la que tiene que comenzar la palabra ingresada " + "\n 2-Al instante se "
-                + " otorgará una pista al jugador para que adivine la palabra que debe ingresar." + " \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea"
-                + "\n 4-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso"
+                + " el cual generara la letra con la que tiene que comenzar la palabra que se ingrese. " + "\n 2-Al instante se "
+                + " otorgará una pista al jugador para que adivine la palabra que debe ingresar." + " \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
+                + " \n 4-Posee 20 segundos por ronda para acertar sino terminara el juego."
+                + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
                 + "\n \t Buena Suerte!");
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
         jTime.setEditable(false);
@@ -93,6 +94,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         jTime = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextBox = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -180,6 +182,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         jTextBox.setRows(5);
         jScrollPane3.setViewportView(jTextBox);
 
+        jLabel3.setText("Tiempo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -207,6 +211,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                         .addGap(18, 18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(121, 121, 121)))
@@ -224,7 +230,9 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
                         .addComponent(btnNivel2))
-                    .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -360,8 +368,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         /*Se reinicia el campo de texto y queda en blanco*/
         txtResp.setText("");
-        System.out.println(cont);
-        
+        //System.out.println(cont);   //traza para ver el valor de la variable cont
+        jTime.setText("");
 
     }//GEN-LAST:event_btnStopActionPerformed
 
@@ -508,6 +516,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JButton btnStop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
