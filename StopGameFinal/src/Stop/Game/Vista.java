@@ -177,6 +177,11 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         jScrollPane2.setViewportView(TablaPuntaje);
 
         btnNivel2.setText("Nivel 2");
+        btnNivel2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNivel2ActionPerformed(evt);
+            }
+        });
 
         jTextBox.setColumns(20);
         jTextBox.setRows(5);
@@ -474,6 +479,11 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     private void txtLetraGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetraGenActionPerformed
 
     }//GEN-LAST:event_txtLetraGenActionPerformed
+
+    private void btnNivel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNivel2ActionPerformed
+        JOptionPane.showMessageDialog(null,"En construcción");
+        System.exit(0);
+    }//GEN-LAST:event_btnNivel2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
