@@ -5,18 +5,23 @@
  */
 package Stop.Game;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class Main {
     public static void main(String[] args) {
+        
+        
           java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Vista().setVisible(true);
 
             }
         });
+
     }
    
 }
