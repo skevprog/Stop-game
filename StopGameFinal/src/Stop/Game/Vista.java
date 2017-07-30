@@ -62,12 +62,14 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         s = 5;                                                       //Vidas
         btnNivel2.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Bienvenido a Stop!"); //Mensaje bienvenida
-        JOptionPane.showMessageDialog(null, "Instrucciones \n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra'"
-                + " el cual generara la letra con la que tiene que comenzar la palabra que se ingrese. " + "\n 2-Al instante se "
-                + " otorgará una pista al jugador para que adivine la palabra que debe ingresar." + " \n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
-                + " \n 4-Posee 20 segundos por ronda para acertar sino terminara el juego."
+        JOptionPane.showMessageDialog(null, "Instrucciones "
+                + "\n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra' el cual generará la letra con la que tiene que comenzar la palabra que se ingrese. " + 
+                  "\n 2-Al instante se otorgará una pista al jugador para que adivine la palabra que debe ingresar." + 
+                  "\n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
+                + "\n 4-Posee 30 segundos por ronda para acertar sino terminara el juego."
                 + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
                 + "\n \t Buena Suerte!");
+        
         JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
@@ -438,7 +440,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         /*Generar palabra dependiendo de la letra que se cree*/
         if (letra.equals("a")) {
-            JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //Abeja
+            //JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //Abeja
             jTextBox.setText("De celda en celda voy \n pero presa no estoy.");
             palabra = "abeja";
 
@@ -446,25 +448,25 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
         if (letra.equals("e")) {
 
-            JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
+            //JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
             jTextBox.setText("La palabra posee 8 letras");
             palabra = "elefante";
 
         }
         if (letra.equals("c")) {
-            JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
+            //JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
             jTextBox.setText("¿Que animal tiene cara de verdura?");
             palabra = "caracol";
 
         }
         if (letra.equals("g")) {
-            JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
+            //JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
             jTextBox.setText("¿Cuál es el animal que es dos veces animal?");
             palabra = "gato";
 
         }
         if (letra.equals("s")) {
-            JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");         //serpiente
+            //JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");         //serpiente
             jTextBox.setText("La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
             palabra = "serpiente";
 
