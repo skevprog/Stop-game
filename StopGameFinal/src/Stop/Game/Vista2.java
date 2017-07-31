@@ -446,67 +446,73 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
         /*Dependiendo la ronda se indicara una letra*/
         switch (cont) {
             case 1:
-                letra = "r";
+                letra = "t";
 
                 break;
             case 2:
-                letra = "a";
+                letra = "p";
 
                 break;
             case 3:
-                letra = "s";
+                letra = "d";
 
                 break;
             case 4:
-                letra = "g";
+                letra = "r";
 
                 break;
             case 5:
-                letra = "c";
+                letra = "a";
 
                 break;
             default:
                 break;
         }
 
-        JOptionPane.showMessageDialog(null, "La letra generada para esta ronda es: " + letra);     //Mostrar la letra en una ventana                                                   //Pasaje de char a String
+        JOptionPane.showMessageDialog(null, "La letra generada para esta ronda es: \n "
+                + "                         \t\t " + letra);     //Mostrar la letra en una ventana                                                   //Pasaje de char a String
         txtLetraGen.setText(letra);                                                                 //Colocar la letra generada en un cuadro para recordar
         txtLetraGen.setEditable(false);
 
         /*Generar palabra dependiendo de la letra que se cree*/
+        if (letra.equals("p")) {
+            //JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //peine
+            jTextBox.setText("Te lo digo y no lo entiendes \n"
+                    + "no tengo boca \n"
+                    + "pero si tengo dientes.\n" );
+            palabra = "peine";
+
+        }
+
+        if (letra.equals("t")) {
+
+            //JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");                              //televisor
+            jTextBox.setText("Una gran caja con proyección, \ncon mando a distancia \naprieto el botón.");
+            palabra = "televisor";
+
+        }
         if (letra.equals("a")) {
-            //JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //Abeja
-            jTextBox.setText("");
-            palabra = "abeja";
+            //JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");                    //almohada
+            jTextBox.setText("Aunque al dormir me consultan\n" +
+                            "nunca suelo contestar.");
+            palabra = "almohada";
 
         }
-
         if (letra.equals("r")) {
-
-            //JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //reloj
-            jTextBox.setText("Tiene agujas y no cose, "
-                           + "\nnose mueve, pero anda, "
-                           + "\nsi le das cuerda funciona y "
-                            +"\nel paso del tiempo señala.");
-            palabra = "reloj";
-
-        }
-        if (letra.equals("c")) {
-            //JOptionPane.showMessageDialog(null, "¿Que animal tiene cara de verdura?");  //Cara-col
-            jTextBox.setText("¿Que animal tiene cara de verdura?");
-            palabra = "caracol";
+            //JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //radio
+            jTextBox.setText("Habla y no tiene garganta \n" +
+                            "entona y no tiene voz; \n" +
+                            "si quieres que cante canta \n" +
+                            "si no la quiere no.");
+            palabra = "radio";
 
         }
-        if (letra.equals("g")) {
-            //JOptionPane.showMessageDialog(null, "¿Cuál es el animal que es dos veces animal?");         //gato por es gato y araña
-            jTextBox.setText("¿Cuál es el animal que es dos veces \n animal?");
-            palabra = "gato";
-
-        }
-        if (letra.equals("s")) {
-            //JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");         //serpiente
-            jTextBox.setText("La cantidad de letras de la palabra es \n igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");
-            palabra = "serpiente";
+        if (letra.equals("d")) {
+            //JOptionPane.showMessageDialog(null, "La cantidad de letras de la palabra es igual a la siguiente cuenta: \n ((3x6)+(8/2))-13");         //diccionario
+            jTextBox.setText("Todas las palabras sé, "
+                    + "\ny aunque todas las explique "
+                    + "\nnunca las pronunciaré.");
+            palabra = "diccionario";
 
         }
 
