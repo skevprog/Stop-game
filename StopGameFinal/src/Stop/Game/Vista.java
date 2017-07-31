@@ -436,7 +436,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
     if(time==20){
-        JOptionPane.showMessageDialog(null, "Game Over");
+        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
         System.exit(0);
     }
 }
@@ -481,7 +481,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 break;
         }
 
-        JOptionPane.showMessageDialog(null, "La letra generada para esta ronda es: " + letra);     //Mostrar la letra en una ventana                                                   //Pasaje de char a String
+        JOptionPane.showMessageDialog(null, "La letra generada para esta ronda es: \n "
+                + "                         \t\t " + letra);     //Mostrar la letra en una ventana       //Mostrar la letra en una ventana                                                   //Pasaje de char a String
         txtLetraGen.setText(letra);                                                                 //Colocar la letra generada en un cuadro para recordar
         txtLetraGen.setEditable(false);
 

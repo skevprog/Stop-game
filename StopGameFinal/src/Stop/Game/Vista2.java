@@ -397,13 +397,13 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
 
                 JOptionPane.showMessageDialog(null, "Su puntaje es de: " + s + "puntos");
                 if (s >= 12) {
-                    JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitado");
+                    JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Ha terminado el juego!! \n Felicitaciones");
                     btnStop.setEnabled(false);
                     btnGenLet.setEnabled(false);
                     jtxtvida.setText("");
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Game Over");
+                    JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
                     System.exit(0);
                 }
         }
@@ -424,7 +424,7 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
     if(time==20){
-        JOptionPane.showMessageDialog(null, "Game Over");
+        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
         System.exit(0);
     }
 }
