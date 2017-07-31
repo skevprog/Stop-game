@@ -70,12 +70,12 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
                 + "\n \t Buena Suerte!");
         
-        JOptionPane.showMessageDialog(null, "Nivel 1 \n Animales " + "\n(nombre de animales)");
+        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size= 11> Nivel 1 \n Animales " + "\n(nombre de animales)");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
         jTextBox.setEditable(false);
-        
-        
+        jtxtvida.setEditable(false);
+        jtxtvida.setText(String.valueOf(s));
     }
 
     @SuppressWarnings("unchecked")
@@ -315,15 +315,12 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         char ani=txtAnimal.getText().toUpperCase().trim().charAt(0);
         char col=txtColor.getText().toUpperCase().trim().charAt(0);
         char p=randomLet;
-        
         if(nom!=p && ani!=p && col!=p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
         VistaPuntaje.txtPuntajeNombre.setEditable(false);
         VistaPuntaje.txtPuntajeAnimal.setText("0");
         VistaPuntaje.txtPuntajeAnimal.setEditable(false);
         VistaPuntaje.txtPuntajeColor.setText("0");
-        VistaPuntaje.txtPuntajeColor.setEditable(false);
-        
         }else {
         VistaPuntaje.txtPuntajeNombre.setEditable(true);
         VistaPuntaje.txtPuntajeAnimal.setEditable(true);
@@ -335,14 +332,12 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         VistaPuntaje.txtPuntajeAnimal.setEditable(false);
         VistaPuntaje.txtPuntajeColor.setText("0");
         VistaPuntaje.txtPuntajeColor.setEditable(false);
-        
     }else if(nom!=p && ani==p && col!=p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
         VistaPuntaje.txtPuntajeNombre.setEditable(false);
          VistaPuntaje.txtPuntajeAnimal.setText("0");
          VistaPuntaje.txtPuntajeAnimal.setEditable(false);
          VistaPuntaje.txtPuntajeColor.setText("");
-    
     }else if(nom!=p && ani!=p && col==p){
         VistaPuntaje.txtPuntajeNombre.setText("0");
         VistaPuntaje.txtPuntajeNombre.setEditable(false);
@@ -383,7 +378,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             p--;         //se resta puntaje cada vez que vuelve a intentarlo
             JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
             //System.out.println("s=" + s);         //traza para evaluar el valor de s
-            jtxtvida.setText(String.valueOf(s));
+            jtxtvida.setText(String.valueOf(s));    //Para mostrar los intentos en la pantalla
             if (s == 0) {
                 JOptionPane.showMessageDialog(null, "Game Over");
                 System.exit(0);
@@ -449,7 +444,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         btnStop.setEnabled(true);
         btnGenLet.setEnabled(false);
         txtResp.setEditable(true);
-
+        
         /*Dependiendo la ronda se indicara una letra*/
         switch (cont) {
             case 1:
