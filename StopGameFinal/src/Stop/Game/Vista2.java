@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  *
  * @author Kevin
  */
-public class Vista extends javax.swing.JFrame implements ActionListener{
+public class Vista2 extends javax.swing.JFrame implements ActionListener{
 
     public static String letra;
     public static String palabra;
@@ -47,7 +47,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     };
 
     /*METODO CONSTRUCTOR*/
-    public Vista() {
+    public Vista2() {
         initComponents();
         this.setResizable(false);
         TablaDatos.setModel(datos);
@@ -60,18 +60,9 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         btnStop.setEnabled(false);
         this.setLocationRelativeTo(null);                           //Panel en el medio de la pantalla
         txtResp.setEditable(false);
-        s = 5;                                                       //Vidas
-        btnNivel2.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Bienvenido a Stop!"); //Mensaje bienvenida
-        JOptionPane.showMessageDialog(null, "<html><font size='14'>Instrucciones "
-                + "\n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra' el cual generará la letra con la que tiene que comenzar la palabra que se ingrese. " + 
-                  "\n 2-Al instante se otorgará una pista al jugador para que adivine la palabra que debe ingresar." + 
-                  "\n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
-                + "\n 4-Posee 30 segundos por ronda para acertar sino terminara el juego."
-                + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
-                + "\n \t Buena Suerte!");
+        s=Vista.s;
         
-        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size= 11> Nivel 1 \n Animales " + "\n(nombre de animales)");
+        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size= 11> Nivel 2 \n Objetos " + "\n(nombre de objetos)");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
         jTextBox.setEditable(false);
@@ -86,7 +77,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPuntaje = new javax.swing.JTable();
-        btnNivel2 = new javax.swing.JButton();
         jTime = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextBox = new javax.swing.JTextArea();
@@ -103,6 +93,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         TablaDatos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -131,13 +122,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             }
         });
         jScrollPane2.setViewportView(TablaPuntaje);
-
-        btnNivel2.setText("Nivel 2");
-        btnNivel2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNivel2ActionPerformed(evt);
-            }
-        });
 
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -168,7 +152,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         });
 
         jLabel6.setFont(new java.awt.Font("Lao UI", 1, 14)); // NOI18N
-        jLabel6.setText("Animal");
+        jLabel6.setText("Objeto");
 
         txtResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +195,10 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Stop");
 
+        jLabel7.setFont(new java.awt.Font("Lao UI", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("NIVEL 2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -229,9 +217,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNivel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -256,8 +242,12 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                             .addComponent(jScrollPane3)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 11, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -265,12 +255,11 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnNivel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,7 +400,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitado");
                     btnStop.setEnabled(false);
                     btnGenLet.setEnabled(false);
-                    btnNivel2.setEnabled(true);
                     jtxtvida.setText("");
 
                 } else {
@@ -458,7 +446,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         /*Dependiendo la ronda se indicara una letra*/
         switch (cont) {
             case 1:
-                letra = "e";
+                letra = "r";
 
                 break;
             case 2:
@@ -488,16 +476,19 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         /*Generar palabra dependiendo de la letra que se cree*/
         if (letra.equals("a")) {
             //JOptionPane.showMessageDialog(null, "De celda en celda voy \n pero presa no estoy.");           //Abeja
-            jTextBox.setText("De celda en celda voy \n pero presa no estoy.");
+            jTextBox.setText("");
             palabra = "abeja";
 
         }
 
-        if (letra.equals("e")) {
+        if (letra.equals("r")) {
 
-            //JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //Elefante
-            jTextBox.setText("La palabra posee 8 letras");
-            palabra = "elefante";
+            //JOptionPane.showMessageDialog(null, "La palabra posee 8 letras");       //reloj
+            jTextBox.setText("Tiene agujas y no cose, "
+                           + "\nnose mueve, pero anda, "
+                           + "\nsi le das cuerda funciona y "
+                            +"\nel paso del tiempo señala.");
+            palabra = "reloj";
 
         }
         if (letra.equals("c")) {
@@ -531,12 +522,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
 
     }//GEN-LAST:event_txtLetraGenActionPerformed
 
-    private void btnNivel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNivel2ActionPerformed
-        this.setVisible(false);
-        Vista2 nivel2=new Vista2();
-        nivel2.setVisible(true);
-    }//GEN-LAST:event_btnNivel2ActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -564,7 +549,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista().setVisible(true);
+                new Vista2().setVisible(true);
 
             }
         });
@@ -574,7 +559,6 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JTable TablaDatos;
     private javax.swing.JTable TablaPuntaje;
     private javax.swing.JButton btnGenLet;
-    private javax.swing.JButton btnNivel2;
     private javax.swing.JButton btnStop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -582,6 +566,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
