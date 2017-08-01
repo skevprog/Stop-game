@@ -423,7 +423,7 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
     public void logic(){
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
-    if(time==20){
+    if(time==35){
         JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
         System.exit(0);
     }

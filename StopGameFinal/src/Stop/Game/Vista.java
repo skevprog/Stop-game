@@ -67,7 +67,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                 + "\n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra' el cual generará la letra con la que tiene que comenzar la palabra que se ingrese. " + 
                   "\n 2-Al instante se otorgará una pista al jugador para que adivine la palabra que debe ingresar." + 
                   "\n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
-                + "\n 4-Posee 30 segundos por ronda para acertar sino terminara el juego."
+                + "\n 4-Posee 35 segundos por ronda para acertar sino terminara el juego."
                 + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
                 + "\n \t Buena Suerte!");
         
@@ -382,21 +382,9 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
             jTextBox.setText("");
             
             time=0;             //se reinicia a 0
-        } else {
-            s--;         //Se restan las vidas
-            p--;         //se resta puntaje cada vez que vuelve a intentarlo
-            JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
-            //System.out.println("s=" + s);         //traza para evaluar el valor de s
-            jtxtvida.setText(String.valueOf(s));    //Para mostrar los intentos en la pantalla
-            if (s == 0) {
-                JOptionPane.showMessageDialog(null, "Game Over");
-                System.exit(0);
-            }
-        }
-        /*Ultima Ronda*/
-        if(cont==6){
+            if(cont==6){
             Integer s = 0;
-                System.out.println("Partida Finalizada");
+                //System.out.println("Partida Finalizada");
                 
 
                 int limite = puntaje.getRowCount();
@@ -419,6 +407,47 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
                     System.exit(0);
                 }
         }
+        } else {
+            s--;         //Se restan las vidas
+            p--;         //se resta puntaje cada vez que vuelve a intentarlo
+            JOptionPane.showMessageDialog(null, " Incorrecto \n Intente nuevamente le quedan " + s + " intento/s");
+            //System.out.println("s=" + s);         //traza para evaluar el valor de s
+            jtxtvida.setText(String.valueOf(s));    //Para mostrar los intentos en la pantalla
+            if (s == 0) {
+                JOptionPane.showMessageDialog(null, "Game Over");
+                System.exit(0);
+            }
+        }
+        
+        
+        /*Ultima Ronda*/
+        /*
+        if(cont==6){
+            Integer s = 0;
+                //System.out.println("Partida Finalizada");
+                
+
+                int limite = puntaje.getRowCount();
+
+                
+                for (int i = 0; i < limite; i++) {                          //Ciclo for suma el puntaje que se encuentra en la tabla puntaje
+                    s = s + (Integer) puntaje.getValueAt(i, 0);
+                }
+
+                JOptionPane.showMessageDialog(null, "Su puntaje es de: " + s + "puntos");
+                if (s >= 12) {
+                    JOptionPane.showMessageDialog(null, "Felicitaciones Nivel 2 habilitado");
+                    btnStop.setEnabled(false);
+                    btnGenLet.setEnabled(false);
+                    btnNivel2.setEnabled(true);
+                    jtxtvida.setText("");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Game Over");
+                    System.exit(0);
+                }
+        }
+        */
 
         /*Se reinicia el campo de texto y queda en blanco*/
         txtResp.setText("");
@@ -435,7 +464,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
     public void logic(){
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
-    if(time==20){
+    if(time==35){
         JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
         System.exit(0);
     }
