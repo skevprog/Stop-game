@@ -66,8 +66,8 @@ public class Vista extends javax.swing.JFrame implements ActionListener{
         JOptionPane.showMessageDialog(null, "<html><font size='14'>Instrucciones "
                 + "\n 1-Para comenzar a jugar se debe apretar el botón 'Generar Letra' el cual generará la letra con la que tiene que comenzar la palabra que se ingrese. " + 
                   "\n 2-Al instante se otorgará una pista al jugador para que adivine la palabra que debe ingresar." + 
-                  "\n 3-Se poseen 5 oportunidades que iran disminuyendo a medida que se ingrese una palabra erronea."
-                + "\n 4-Posee 35 segundos por ronda para acertar sino terminara el juego."
+                  "\n 3-Se poseen 5 oportunidades (en todo el juego) y 5 puntos(por ronda) que iran disminuyendo a medida que se ingrese una palabra erronea."
+                + "\n 4-Posee 35 segundos por ronda para acertar sino terminará el juego."
                 + "\n 5-Una vez ingresada la palabra se debe proceder a apretar el boton " + " 'parar' " + " para que se valide el ingreso."
                 + "\n \t Buena Suerte!");
         

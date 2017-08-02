@@ -62,7 +62,7 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
         txtResp.setEditable(false);
         s=Vista.s;
         
-        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size= 11> Nivel 2 \n Objetos " + "\n(nombre de objetos)");
+        JOptionPane.showMessageDialog(null, "<html><font face='Arial' size= 11> Nivel 2 \n Objetos " + "\n(nombre de objetos)"+"\ndificultad:10 segundos menos");
         jTime.setEditable(false);
         txtLetraGen.setEditable(false);
         jTextBox.setEditable(false);
@@ -423,7 +423,7 @@ public class Vista2 extends javax.swing.JFrame implements ActionListener{
     public void logic(){
     time++;
     jTime.setText(""+time);         //Muestra el tiempo transcurrido en el text field
-    if(time==35){
+    if(time==25){
         JOptionPane.showMessageDialog(null, "<html><font face='Arial' size=15 >Game Over");
         System.exit(0);
     }
